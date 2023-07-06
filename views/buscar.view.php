@@ -29,6 +29,7 @@
 		<?php endif; ?>
 		<a class="cerrar" href="cerrar.php">Cerrar Sesion</a>
 		<hr class="linea">
+		<br><?php //echo $nombre_usuario; ?>
 
 		<br>
 		<br>
