@@ -1,10 +1,15 @@
 <?php
 
-$rol = '';
+$login_s = '';
+
+include('funciones/funcion_login.php');
+$login = login($login_s);
 
 include('funciones/funcion_rol.php');
+$rol_s = rol($login);
 
-$rol_usuario = rol($rol);
+include('funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
 
 /*
 try{
@@ -45,6 +50,23 @@ $ordenb = isset($_POST['desc']) ? $_POST['desc'] : false;
 } catch (PDOException $e) {
 	echo "Error: " . $e -> getMessage();
 }
+
+
+/* try {
+
+echo $rol;
+	$conexion_usu = new PDO ('mysql: host=localhost; dbname=almacen', 'root', '');
+	$consulta_usu = $conexion_usu -> prepare("SELECT * FROM usuarios WHERE id_usuario = '$rol_usuario'");
+	$consulta_usu -> execute();
+	$resultado_usu = $consulta_usu -> fetchAll();
+
+	foreach ($resultado_usu as $fila_usu) {
+		echo $fila_usu['nombre'];
+	}
+	
+} catch (PDOException $e) {
+	echo 'Error: ' . $e -> getMessage();
+} */
 
 require('views\insumos.view.php');
 	
