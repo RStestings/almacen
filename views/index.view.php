@@ -21,7 +21,7 @@
 					<a   href="buscar_herramienta.php"><img src="imagenes/herramientas.png"><br>Ver Herramienta</a>
 				</div>
 
-				<?php if($rol_usuario == 'admin') :  ?>
+				<?php if($rol_s == 'admin') :  ?>
 					<div class="" id="">
 						<a   href=""><img src="imagenes/datos_tecnicos.png"><br>Datos Tecnicos</a>
 					</div>
