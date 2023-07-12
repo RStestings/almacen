@@ -1,10 +1,12 @@
 <?php 
 
-$rol = '';
+$login_s = '';
+
+include('funciones/funcion_login.php');
+$login = login($login_s);
 
 include('funciones/funcion_rol.php');
-
-$rol_usuario = rol($rol);
+$rol_s = rol($login);
 
 
 require('views/index.view.php')
