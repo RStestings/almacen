@@ -1,10 +1,15 @@
 <?php
 
-$rol = '';
+$login_s = '';
+
+include('funciones/funcion_login.php');
+$login = login($login_s);
 
 include('funciones/funcion_rol.php');
+$rol_s = rol($login);
 
-$rol_usuario = rol($rol);
+include('funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
 
 
 /*
