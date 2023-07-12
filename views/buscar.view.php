@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Insumos Area Tecnica</title>
-	<link rel="stylesheet" type="text/css" href="css\estilos.css">
+	<title>Insumos Tecnicos</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
 
 <script type="text/javascript">
@@ -20,84 +21,118 @@
 </script>
 
 <body>
-	
-		<h1 id="texto_centro"> Insumos Area Tecnica </h1>
-		<a href="index.php">Inicio</a>
-		<a href="insumos.php">Ver Todos</a>
-		<?php if($rol_usuario == 'admin' OR $rol_usuario == 'almacen') : ?>
-			<a href="creacion.php">Crear Nuevo</a>
-		<?php endif; ?>
-		<a class="cerrar" href="cerrar.php">Cerrar Sesion</a>
-		<hr class="linea">
-		<br><?php //echo $nombre_usuario; ?>
 
-		<br>
-		<br>
+	<header>
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes">Foto</div>
+		<div id="icono2" class="redes">Funcion</div>
+		<div id="icono3" class="redes"><a href="cerrar.php">Cerrar</a></div>
+	</header>
 	
-	Buscar:
-	<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-		<input type="text" name="buscar_insumo" value="">
-		<input type="submit" name="ok" value="Ok">
-	
-	<div class="contenedor">
-		<table class="contenidos">
-			<tr>
-			<th>ID</th>
-			<th>Descripcion</th>
-			<th>Marca</th>
-			<th>Cantidad</th>
-			<th>Unidad</th>
-			<th>Stock</th>
-			<th>Status</th>
-			</tr>
+	<nav>
+		<p>
+			<?php echo $nombre_s . " | " .$login; ?>
+		</p>
+	</nav>
 
-			<?php 
-				$fila = isset($fila) ? $fila : false;
-			foreach ($resultado as $fila): 
-			?>
-			<tr>
-				<td class="centro"><?php echo $fila['id_insumo']; ?></td>
-				<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
-				<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
-				<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
-				<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
-				<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="insumos.php">Ver Todos</a></li>
+			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+				<li><a href="creacion.php">Crear Nuevo</a></li>
+				<li><a href="#">Movimientos</a></li>
+			<?php endif; ?>
+			</ul>
+		</aside>
+		
+		<article>
+
+		
+		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+			<p>Buscar:
+				<input type="text" name="buscar_insumo" value="">
+				<input type="submit" name="ok" value="Ok" class="button button2">
+			</p>
+			
+			<table class="tablebds">
+				<tr>
+					<th>ID</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
+					<th>Cantidad</th>
+					<th>Unidad</th>
+					<th>Stock</th>
+					<th>Status</th>
+				</tr>
+
+				<?php 
+					$fila = isset($fila) ? $fila : false;
+						foreach ($resultado as $fila): 
+				?>
+				<tr>
+					<td class="centro"><?php echo $fila['id_insumo']; ?></td>
+					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
+					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
+					
 				<?php
-				$limite = $fila['cant_insumo']-$fila['stock_insumo'];
-					if($limite >= 6) { ?>
-						<td class="centro" bgcolor="#OOFF7F">OK</td>
+					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
+					if($limite >= 6) { 
+				?>
+					<td class="centro" bgcolor="#OOFF7F">OK</td>
 
 				<?php
 					}elseif($limite < 6 && $limite >0) { ?>
-						<td class="centro" bgcolor="#FF8C00">Pedir</td>
+					<td class="centro" bgcolor="#FF8C00">Pedir</td>
 				<?php }else{ ?>
-						<td class="centro" bgcolor="red">No hay</td>
+					<td class="centro" bgcolor="red">No hay</td>
 				<?php } ?>
 
-				<?php if($rol_usuario == 'admin' OR $rol_usuario == 'almacen') : ?>
-				<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
-				<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Surtir</a></td>
+				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
+					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Surtir</a></td>
 				<?php endif; ?>
 
-				<?php if($rol_usuario == 'admin') : ?>
-				<td ><a class="button button2" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
-				<td ><a class="button button2" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
+				<?php if($rol_s == 'admin') : ?>
+					<td ><a class="button button2" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
+					<td ><a class="button button2" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
 				<?php endif; ?>
 				</tr>
 
-			
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+
 		</table>
 
 		<?php
+			if($fila == false){
+				echo 'No existen coincidencias'; 
+			} 
+		?>
+		</form>
 
+			<div class="navtable">
+				<ul>
+					<li id="navboton"><</li>
+					<li id="navboton">1</li>
+					<li id="navboton">2</li>
+					<li id="navboton">></li>
+				</ul>
+			</div>
 
+			<br>
+			<br>
 
-		if($fila == false){
-			echo 'No existen coincidencias';
-		} ?>
+		</article>
 
-	</div>
-	</form>
+	</section>
+
+	<!- <footer> <?php // fragmento comentado&copy; Todos los derechos reservados. ?>
+		
+	</footer> ->
+
 </body>
 </html>
