@@ -13,7 +13,7 @@
 		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
 		<div id="icono1" class="redes">Foto</div>
 		<div id="icono2" class="redes">Funcion</div>
-		<div id="icono3" class="redes"><a href="cerrar.php">Cerrar</a></div>
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
 	</header>
 	
 	<nav>
