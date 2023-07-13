@@ -87,28 +87,36 @@ header {
 	color: white;
 }
 
-#icono3 {
+#iconocerrar {
 	top: 20px;
 	right: 19px;
 	font-weight: bold;
 	text-align: center;
-	/* background: #AB0000; */
+	background: #333;
 	color: white;
 }
 
+#iconocerrar:hover {
+	background: #AB0000;;
+}
 
-#icono3 a {
+#iconocerrar:active {
+	background: white;
+}
+
+#iconocerrar a {
 	text-decoration: none;
-	color: #AB0000;
+	color: white;
 }
 
-#icono3 a:hover {
-	color: red;
+#iconocerrar a:hover {
+	color: white;
 }
 
-#icono3 a:active {
+#iconocerrar a:active {
 	color: black;
 }
+
 
 
 
@@ -200,6 +208,7 @@ aside#izq {
 	background: #333;
 }
 
+
 aside#izq ul li {
 	background: #AB0000;
 	padding: 10px;
@@ -207,6 +216,14 @@ aside#izq ul li {
 	list-style:none;
 	list-style-position:inside;
 	list-style-image:url(lista.png);
+}
+
+aside#izq li:hover {
+	background: #7C0303;
+}
+
+aside#izq li .activo {
+	background: #7C0303;
 }
 
 aside#izq ul li a {
@@ -266,6 +283,144 @@ article {
 	top:0;
 	width:85%;
 	height:453px;
+}
+
+
+.zonamenus {
+	position: absolute;
+	margin: 7%;
+	padding: 0;
+	margin-left: 8%;
+	width: 85%;
+	height: 88%;
+	/* background: #333; */
+}
+
+#menu1 {
+	top: -8%;
+	left: 10%;
+	width: 15%;
+	height: 37%;
+	align-content: center;
+	/* background: gray; */
+	line-height: 150px;
+}
+
+#menu1:hover {
+	border: solid 3px #AB0000;
+	/* background: #F37070; */
+}
+
+#menu1:active {
+	border: solid 3px #AB0000;
+	background: #F37070;
+}
+
+#menu1 img {
+	width: 100%;
+	height: 100%;
+}
+
+#menu1 p {
+	position: absolute;
+	line-height: 150px;
+	text-align: center;
+}
+
+#menu2 {
+	top: -8%;
+	left: 35%;
+	width: 15%;
+	height: 37%;
+	align-content: center;
+	text-align: center;
+	line-height: 150px;
+}
+
+#menu2:hover {
+	border: solid 3px #AB0000;
+}
+
+#menu2:active {
+	border: solid 3px #AB0000;
+	background: #F37070;
+}
+
+#menu2 img {
+	width: 100%;
+	height: 100%;
+}
+
+#menu3 {
+	top: -8%;
+	left: 60%;
+	width: 15%;
+	height: 37%;
+	align-content: center;
+	text-align: center;
+	line-height: 150px;
+}
+
+#menu3:hover {
+	border: solid 3px #AB0000;
+}
+
+#menu3:active {
+	border: solid 3px #AB0000;
+	background: #F37070;
+}
+
+#menu3 img {
+	width: 100%;
+	height: 100%;
+}
+
+#menu4 {
+	top: 38%;
+	left: 22%;
+	width: 15%;
+	height: 37%;
+	align-content: center;
+	text-align: center;
+	line-height: 150px;
+}
+
+#menu4:hover {
+	border: solid 3px #AB0000;
+}
+
+#menu4:active {
+	border: solid 3px #AB0000;
+	background: #F37070;
+}
+
+#menu4 img {
+	width: 100%;
+	height: 100%;
+}
+
+#menu5 {
+	top: 38%;
+	left: 47%;
+	width: 15%;
+	height: 37%;
+	align-content: center;
+	text-align: center;
+	line-height: 150px;
+}
+
+#menu5:hover {
+	border: solid 3px #AB0000;
+}
+
+#menu5:active {
+	border: solid 3px #AB0000;
+	background: #F37070;
+}
+
+#menu5 img {
+	width: 100%;
+	height: 100%;
 }
 
 .tablebds {
