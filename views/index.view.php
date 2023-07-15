@@ -10,15 +10,21 @@
 <body>
 
 	<header>
+
 		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
-		<div id="icono1" class="redes">Foto</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+			echo $img_s;
+		}else{
+			echo 'no_usuario.png';
+		}
+		?>"></div>
 		<div id="icono2" class="redes">Almacen</div>
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
 	</header>
 	
 	<nav>
 		<p>
-			<?php echo $nombre_s . " | " .$login; ?>
+			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
 		</p>		
 	</nav>
 
@@ -26,7 +32,7 @@
 		<aside id="izq">
 			<ul>
 				<li><a href="buscar.php">Insumos</a></li>
-				<li><a href="herramientas.php">Herramienta</a></li>
+				<li><a href="herramienta.php">Herramienta</a></li>
 
 			<?php if($rol_s == 'admin') :  ?>
 				<li><a href="#">Tecnicos</a></li>
@@ -40,8 +46,8 @@
 		<article>
 
 			<div class="zonamenus">
-				<div id="menu1" class="zonamenus"><a href=""><img src="imagenes/insumos.png"></a></div>
-				<div id="menu2" class="zonamenus"><a a href=""><img src="imagenes/herramientas.png"></a></div>
+				<div id="menu1" class="zonamenus"><a href="buscar.php"><img src="imagenes/insumos.png"></a></div>
+				<div id="menu2" class="zonamenus"><a a href="herramienta.php"><img src="imagenes/herramientas.png"></a></div>
 			
 			<?php if($rol_s == 'admin') :  ?>
 				<div id="menu3" class="zonamenus"><a a href=""><img src="imagenes/datos_tecnicos.png"></a></div>
