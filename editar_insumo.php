@@ -1,11 +1,12 @@
 <?php
 
-$rol = '';
+include('funciones/funcion_login.php');
+$login = login();
 
 include('funciones/funcion_rol.php');
-$usuario_rol = rol($rol);
+$rol_s = rol($login);
 
-if($usuario_rol == 'admin'){
+if($rol_s == 'admin'){
 	try {
 
 	$id_insumo = $_GET['id_insumo'];
