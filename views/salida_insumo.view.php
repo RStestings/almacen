@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Practica Estilos CSS</title>
+	<title>Insumos Tecnicos</title>
 	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
@@ -18,7 +18,7 @@
 			echo 'no_usuario.png';
 		}
 		?>"></div>
-		<div id="icono2" class="redes">Almacen</div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
 	</header>
 	
@@ -102,6 +102,7 @@
 				<br>
 					
 				<table>
+					<p>Datos de quien recibe:</p>
 					<tr>
 						<td><label>Tecnico: </label></td>
 						<td><input type="text" name="tecnico" value="" ></td>
