@@ -3,65 +3,112 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<title>Insumos Tecnicos</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
 <body>
-	<h1 id="texto_centro">Registrar nuevo producto</h1>
+
+	<header>
+
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+			echo $img_s;
+		}else{
+			echo 'no_usuario.png';
+		}
+		?>"></div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
+	</header>
 	
-		<a href="index.php">Inicio</a>
-		<a href="buscar.php">Buscar</a>
-		<a>Otro</a>
-		<hr>
+	<nav>
+		<p>
+			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
+		</p>		
+	</nav>
 
-	<br>
-	<br>
-	
-	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="buscar.php">Insumos</a></li>
+				<li><a href="herramienta.php">Herramienta</a></li>
 
-		<table>
-			<tr>
-				<td>Descripcion: </td>
-				<td><input type="text" name="desc_insumo" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_insumo)) echo $desc_insumo; ?>"></td>
-			</tr>
+			<?php //if($rol_s == 'admin') :  ?>
+				<li><a href="#">Tecnicos</a></li>
+				<li><a href="#">Movimientos</a></li>
+				<li><a href="adm/usuarios.php">Usuarios</a></li>
+			<?php //endif; ?>
 
-			<tr>
-				<td>Marca: </td>
-				<td><input type="text" name="marca_insumo" placeholder="Marca:" value="<?php if(!$enviado && isset($marca_insumo)) echo $marca_insumo; ?>"></td>
-			</tr>
+			</ul>
+		</aside>
+		
+		<article>
 
-			<tr>
-				<td>Cantidad: </td>
-				<td><input type="text" name="cant_insumo" placeholder="Cantidad:" value="<?php if(!$enviado && isset($cant_insumo)) echo $cant_insumo; ?>"></td>
-			</tr>
+			<h2>Resgistrar Nuevo Insumo:</h2>
 
-			<tr>
-				<td>Unidad: </td>
-				<td><input type="text" name="unidad_insumo" placeholder="Unidad:" value="<?php if(!$enviado && isset($unidad_insumo)) echo $unidad_insumo; ?>"></td>
-			</tr>
+			<p>
+				<br>
+			</p>
 
-			<tr>
-				<td>Stock: </td>
-				<td><input type="text" name="stock_insumo" placeholder="Stock" value="<?php if(!$enviado && isset($stock_insumo)) echo $stock_insumo; ?>"></td>
-			</tr>
-		</table>
+			<div class="formularios">
+				<br>
 
+				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+					
+				<table>
+					<tr>
+						<td><label>Descripcion: </label></td>
+						<td><input autofocus type="text" name="desc_insumo" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_insumo)) echo $desc_insumo; ?>"></td>
+					</tr>
+					
+					<tr>
+						<td><label>Marca: </label></td>
+						<td><input type="text" name="marca_insumo" placeholder="Marca:" value="<?php if(!$enviado && isset($marca_insumo)) echo $marca_insumo; ?>">
+						</td>
+					</tr>	
 
-		<?php if(!empty($errores)): ?>
+					<tr>
+						<td><label>Cantidad:</label></td>
+						<td><input type="text" name="cant_insumo" placeholder="Cantidad:" value="<?php if(!$enviado && isset($cant_insumo)) echo $cant_insumo; ?>"></td>
+					</tr>
+
+					<tr>
+						<td><label>Unidad: </label></td>
+						<td><input type="text" name="unidad_insumo" placeholder="Unidad:" value="<?php if(!$enviado && isset($unidad_insumo)) echo $unidad_insumo; ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<td><label>Stock: </label></td>
+						<td><input type="text" name="stock_insumo" placeholder="Stock" value="<?php if(!$enviado && isset($stock_insumo)) echo $stock_insumo; ?>"></td>
+					</tr>
+
+				</table>
+
+				<br><br>
+					<input class="button button2" type="submit" class="btn" name="crear_ok" value="Guardar">
+					<a class="button button2" href="buscar.php">Salir</a>
+
+					<?php if(!empty($errores)): ?>
 				<div class="alert error">
 					<?php echo '<br>'.$errores; ?>
 				</div>
-		<?php elseif($enviado): ?>
+					<?php elseif($enviado): ?>
 				<div class="alert success">
-					<p>Enviado Correctamente</p>
+					<p>Se agregó correctamente</p>
 				</div>
-		<?php endif ?>
+					<?php endif ?>
 
-		<br><input type="submit" class="button button2" name="crear_ok" value="Guardar"> <a class="button button2" href="buscar.php">Salir</a>
-	</form>
-	<div>
-		
-	</div>
+				</form>
+			</div>
+					
+
+		</article>
+
+
+	</section>
+
 
 </body>
 </html>
