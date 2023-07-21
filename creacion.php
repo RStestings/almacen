@@ -2,6 +2,24 @@
 
 $errores = '';
 $enviado = '';
+
+include('funciones/funcion_login.php');
+$login = login();
+
+include('funciones/funcion_rol.php');
+$rol_s = rol($login);
+
+include('funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
+
+include('funciones/funcion_img_login.php');
+$img_s = img($login);
+
+include('funciones/funcion_hoy.php');
+$hoy = hoy();
+
+include('funciones/funcion_conexion.php');
+$conexion = fconexion();
 /*
 try{
 	Codigo a probar
@@ -16,7 +34,6 @@ try{
 //Creacion consulta
 try {
 	//$var_guarda_conexion = new PDO ('tipo:host=ruta;dbname=nombre_basededatos', 'usuario', 'password');
-	$conexion = new PDO ('mysql:host=localhost;dbname=almacen', 'root', '');
 	//echo 'Registro De Insumo Nuevos: <br/><br/>';
 
 // Creacion consulta para Insertar datos
