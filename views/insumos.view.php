@@ -17,7 +17,7 @@
 			echo 'no_usuario.png';
 		}
 		?>"></div>
-		<div id="icono2" class="redes">Funcion</div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
 	</header>
 	
@@ -30,7 +30,7 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
+				<li><a href="buscar.php">Regresar</a></li>
 				<li><a href="buscar.php">Buscar</a></li>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
 				<li><a href="creacion.php">Crear Nuevo</a></li>
