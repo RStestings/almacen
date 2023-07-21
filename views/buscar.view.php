@@ -30,7 +30,7 @@
 			echo 'no_usuario.png';
 		}
 		?>"></div>
-		<div id="icono2" class="redes">Funcion</div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Cerrar</a></div>
 	</header>
 	
@@ -98,7 +98,7 @@
 
 				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
 					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
-					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Surtir</a></td>
+					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
 				<?php endif; ?>
 
 				<?php if($rol_s == 'admin') : ?>
@@ -134,9 +134,9 @@
 
 	</section>
 
-	<!- <footer> <?php // fragmento comentado&copy; Todos los derechos reservados. ?>
+	<!-- <footer> <?php // fragmento comentado&copy; Todos los derechos reservados. ?>
 		
-	</footer> ->
+	</footer> -->
 
 </body>
 </html>
