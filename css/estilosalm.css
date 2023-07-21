@@ -70,7 +70,7 @@ header {
 	width: 60px;
 	height: 60px;
 	top: 10px;
-	right: 125px;
+	right: 150px;
 	border-radius: 5px;
 	/* background: greenyellow; */
 	text-align: center;
@@ -84,11 +84,22 @@ header {
 }
 
 #icono2 {
-	top: 20px;
-	right: 71px;
+	top: 30px;
+	right: 70px;
+	width: 70px;
+	height: 20px;	
 	font-weight: bold;
 	text-align: center;
-	background: red;
+	border-radius: 5px;
+	background: #AB0000;
+}
+
+#icono2:hover {
+	background: #333;
+}
+
+#icono2 li {
+	line-height: 20px;
 	color: white;
 }
 
@@ -97,29 +108,22 @@ header {
 	right: 19px;
 	font-weight: bold;
 	text-align: center;
-	background: #333;
-	color: white;
+	/* background: #333; */
+	color: #333;
 }
 
-#iconocerrar:hover {
-	background: #AB0000;
-}
-
-#iconocerrar:active {
-	background: white;
-}
 
 #iconocerrar a {
 	text-decoration: none;
-	color: white;
+	color: #AB0000;
 }
 
 #iconocerrar a:hover {
-	color: white;
+	color: #333;
 }
 
 #iconocerrar a:active {
-	color: black;
+	color: red;
 }
 
 
