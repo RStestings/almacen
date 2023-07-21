@@ -32,7 +32,7 @@ $consulta_preparada -> execute();
 
 //$consulta_preparada = $conexion -> prepare("UPDATE usuarios SET nombre = '$nombre', edad = '$edad' WHERE id = '$id_edit'");
 
-if($cantidad > 0){
+if($cantidad_s > 0){
 	$consulta_mov = $conexion -> prepare("INSERT INTO movimientos_insumos VALUES (null, '$id', '$id_s', '$cantidad_s', '$proyecto', '$tecnico', '$hoy', 'Salida')");
 	$consulta_mov -> execute();
 }
