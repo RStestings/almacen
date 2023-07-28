@@ -5,6 +5,7 @@ $login = login();
 
 include('funciones/funcion_rol.php');
 $rol_s = rol($login);
+<<<<<<< HEAD
 
 include('funciones/funcion_nombre_login.php');
 $nombre_s = nombre($login);
@@ -15,6 +16,17 @@ $img_s = img($login);
 include('funciones/funcion_hoy.php');
 $hoy = hoy();
 
+=======
+
+include('funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
+
+include('funciones/funcion_img_login.php');
+$img_s = img($login);
+
+include('funciones/funcion_hoy.php');
+$hoy = hoy();
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 
 /*
 try{
@@ -58,7 +70,26 @@ try {
 	echo "Error: " . $e -> getMessage();
 }
 
+<<<<<<< HEAD
 //$rol= 'admin';
+=======
+
+/* try {
+
+echo $rol;
+	$conexion_usu = new PDO ('mysql: host=localhost; dbname=almacen', 'root', '');
+	$consulta_usu = $conexion_usu -> prepare("SELECT * FROM usuarios WHERE id_usuario = '$rol_usuario'");
+	$consulta_usu -> execute();
+	$resultado_usu = $consulta_usu -> fetchAll();
+
+	foreach ($resultado_usu as $fila_usu) {
+		echo $fila_usu['nombre'];
+	}
+	
+} catch (PDOException $e) {
+	echo 'Error: ' . $e -> getMessage();
+} */
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 
 require('views\insumos.view.php');
 	

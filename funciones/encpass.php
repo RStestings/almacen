@@ -1,6 +1,6 @@
 <?php
 
-$password = 'Hernandez2000';
+$password = '1234';
 $password = hash('sha512', $password);
 
 

@@ -31,7 +31,11 @@
 		}
 		?>"></div>
 		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
+<<<<<<< HEAD
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Cerrar</a></div>
+=======
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 	</header>
 	
 	<nav>
@@ -39,6 +43,7 @@
 			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
 		</p>
 	</nav>
+<<<<<<< HEAD
 
 	<section>
 		<aside id="izq">
@@ -155,5 +160,88 @@
 		
 	</footer> -->
 
+=======
+
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="buscar.php">Regresar</a></li>
+				<li><a href="buscar.php">Buscar</a></li>
+			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+				<li><a href="creacion.php">Crear Nuevo</a></li>
+			<?php endif; ?>
+			</ul>
+		</aside>
+		
+		<article>
+
+		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+			<p>
+				Ordenar:
+				<input type="submit" value="Actualizar">
+				<input type="submit" name="asc" value="Menor">
+				<input type="submit" name="desc" value="Mayor">
+			</p>
+			
+
+			<table class="tablebds">
+				<tr>
+					<th>ID</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
+					<th>Cantidad</th>
+					<th>Unidad</th>
+					<th>Stock</th>
+					<th>Status</th>
+				</tr>
+
+				<?php foreach ($resultado as $fila): ?>
+
+				<tr>
+					<td class="centro"><?php echo $fila['id_insumo']; ?></td>
+					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
+					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
+					<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
+					<?php
+					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
+						if($limite >= 6) { ?>
+							<td class="centro" bgcolor="#OOFF7F">OK</td>
+
+					<?php
+						}elseif($limite < 6 && $limite >0) { ?>
+							<td class="centro" bgcolor="#FF8C00">Surtir</td>
+					<?php }else{ ?>
+							<td class="centro" bgcolor="red">No hay</td>
+					<?php } ?>
+				</tr>
+
+				<?php endforeach; ?>
+
+			</table>
+		</form>
+
+			<div class="navtable">
+				<ul>
+					<li id="navboton"><</li>
+					<li id="navboton">1</li>
+					<li id="navboton">2</li>
+					<li id="navboton">></li>
+				</ul>
+			</div>
+
+			<br>
+			<br>
+
+		</article>
+
+	</section>
+
+	<!- <footer> <?php // fragmento comentado&copy; Todos los derechos reservados. ?>
+		
+	</footer> ->
+
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 </body>
 </html>

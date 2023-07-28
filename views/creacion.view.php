@@ -31,14 +31,30 @@
 	<section>
 		<aside id="izq">
 			<ul>
+<<<<<<< HEAD
 				<li><a href="buscar.php">Atras</a></li>
 				<li><a href="buscar.php">Buscar</a></li>
+=======
+				<li><a href="buscar.php">Insumos</a></li>
+				<li><a href="herramienta.php">Herramienta</a></li>
+
+			<?php //if($rol_s == 'admin') :  ?>
+				<li><a href="#">Tecnicos</a></li>
+				<li><a href="#">Movimientos</a></li>
+				<li><a href="adm/usuarios.php">Usuarios</a></li>
+			<?php //endif; ?>
+
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 			</ul>
 		</aside>
 		
 		<article>
 
+<<<<<<< HEAD
 			<h2>Crear Nuevo Insumo:</h2>
+=======
+			<h2>Resgistrar Nuevo Insumo:</h2>
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 
 			<p>
 				<br>
@@ -47,16 +63,30 @@
 			<div class="formularios">
 				<br>
 
+<<<<<<< HEAD
 				<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 				<table>
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input type="text" name="desc_insumo" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_insumo)) echo $desc_insumo; ?>"></td>
+=======
+				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+					
+				<table>
+					<tr>
+						<td><label>Descripcion: </label></td>
+						<td><input autofocus type="text" name="desc_insumo" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_insumo)) echo $desc_insumo; ?>"></td>
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 					</tr>
 					
 					<tr>
 						<td><label>Marca: </label></td>
+<<<<<<< HEAD
 						<td><input type="text" name="marca_insumo" placeholder="Marca:" value="<?php if(!$enviado && isset($marca_insumo)) echo $marca_insumo; ?>"></td>
+=======
+						<td><input type="text" name="marca_insumo" placeholder="Marca:" value="<?php if(!$enviado && isset($marca_insumo)) echo $marca_insumo; ?>">
+						</td>
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 					</tr>	
 
 					<tr>
@@ -66,7 +96,12 @@
 
 					<tr>
 						<td><label>Unidad: </label></td>
+<<<<<<< HEAD
 						<td><input type="text" name="unidad_insumo" placeholder="Unidad:" value="<?php if(!$enviado && isset($unidad_insumo)) echo $unidad_insumo; ?>"></td>
+=======
+						<td><input type="text" name="unidad_insumo" placeholder="Unidad:" value="<?php if(!$enviado && isset($unidad_insumo)) echo $unidad_insumo; ?>">
+						</td>
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 					</tr>
 
 					<tr>
@@ -75,6 +110,7 @@
 					</tr>
 
 				</table>
+<<<<<<< HEAD
 							<?php if(!empty($errores)): ?>
 						<div class="alert">
 							<?php echo '<br>'.$errores; ?>
@@ -92,6 +128,30 @@
 
 		</article>
 
+=======
+
+				<br><br>
+					<input class="button button2" type="submit" class="btn" name="crear_ok" value="Guardar">
+					<a class="button button2" href="buscar.php">Salir</a>
+
+					<?php if(!empty($errores)): ?>
+				<div class="alert error">
+					<?php echo '<br>'.$errores; ?>
+				</div>
+					<?php elseif($enviado): ?>
+				<div class="alert success">
+					<p>Se agregó correctamente</p>
+				</div>
+					<?php endif ?>
+
+				</form>
+			</div>
+					
+
+		</article>
+
+
+>>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 	</section>
 
 
