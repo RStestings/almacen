@@ -3,77 +3,102 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<title>Editar Insumo</title>
+	<title>Insumos Tecnicos</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
-
 <body>
 
+	<header>
+
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+			echo $img_s;
+		}else{
+			echo 'no_usuario.png';
+		}
+		?>"></div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
+	</header>
 	
+	<nav>
+		<p>
+			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
+		</p>		
+	</nav>
 
-	<form action="editar_insumo_process.php" method="post">
-		<?php foreach ($resultado as $fila) : ?>
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="buscar.php">Atras</a></li>
+				<li><a href="insumos.php">Ver Todos</a></li>
 
-	<h1 id="texto_centro">Editar <?php echo "\"" . $fila['desc_insumo'] . "\"";?></h1>
-	<hr>
+			<?php //if($rol_s == 'admin') :  ?>
+				<li><a href="creacion.php">Crear Nuevo</a></li>
+			<?php //endif; ?>
 
-	<br>
-
-
-		<input type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
+			</ul>
+		</aside>
 		
-			
+		<article>
 
-			<table>
+			<h2>Edicion Insumo:</h2>
 
-				<tr>
-					<td><label>ID: </label></td>
-					<td><input type="text" name="id_insumo_ver" disabled value="<?php echo $fila['id_insumo']; ?>" ></td>
-				</tr>
+			<p>
+				<br>
+			</p>
 
-				<tr>
-					<td><label>Descripcion: </label></td>
-					<td><input type="text" name="desc_insumo" value="<?php echo $fila['desc_insumo']; ?>" ></td>
-				</tr>
+			<div class="formularios">
+				<?php foreach ($resultado as $fila) : ?>
 
-				<tr>
-					<td><label>Marca: </label></td>
-					<td><input type="text" name="marca_insumo" value="<?php echo $fila['marca_insumo']; ?>"></td>
-				</tr>
+				<br>
 
-				<tr>
-					<td><label>Cantidad: </label></td>
-					<td><input type="text" name="cant_insumo" value="<?php echo $fila['cant_insumo']; ?>"></td>
-				</tr>
+				<form class="" action="editar_insumo_process.php" method="post">
 
-				<tr>
-					<td><label>Unidad: </label></td>
-					<td><input type="text" name="unidad_insumo" value="<?php echo $fila['unidad_insumo']; ?>"></td>
-				</tr>
+					<input id="forms" type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
+					
+				<table>
+					<tr>
+						<td><label>Descripcion: </label></td>
+						<td><input autofocus type="text" name="desc_insumo" value="<?php echo $fila['desc_insumo']; ?>" ></td>
+					</tr>
+					
+					<tr>
+						<td><label>Marca: </label></td>
+						<td><input type="text" name="marca_insumo" value="<?php echo $fila['marca_insumo']; ?>"></td>
+					</tr>	
 
-				<tr>
-					<td><label>Stock: </label></td>
-					<td><input type="text" name="stock_insumo" value="<?php echo $fila['stock_insumo']; ?>"></td>
-				</tr>
+					<tr>
+						<td><label>Cantidad:</label></td>
+						<td><input type="text" name="cant_insumo"  value="<?php echo $fila['cant_insumo']; ?>"></td>
+					</tr>
 
-			</table>
-			
-		
-		<?php endforeach; ?>
+					<tr>
+						<td><label>Unidad: </label></td>
+						<td><input type="text" name="unidad_insumo" value="<?php echo $fila['unidad_insumo']; ?>"></td>
+					</tr>
+
+					<tr>
+						<td><label>Stock: </label></td>
+						<td><input type="text" name="stock_insumo" value="<?php echo $fila['stock_insumo']; ?>"></td>
+					</tr>
+
+				</table>
+
+				<br><br>
+					<input class="button button2" type="submit" name="ok" value="Guardar">
+					<a class="button button2" href="insumos.php">Salir</a>
+					<?php endforeach; ?>
 
 
-		<?php 
-		$fila= isset($fila) ? $fila : false;
+				</form>
+			</div>
 
-		if($fila == false){ 
-			echo "Dato No Existente";
-		} ?>
+		</article>
 
-		<br><br>
-		<input class="button button2" type="submit" name="ok" value="Editar">
-		<a class="button button2" href="buscar.php">Salir</a>
-		
-	</form>
+	</section>
+
 
 </body>
-
+</html>

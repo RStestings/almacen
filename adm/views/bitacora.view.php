@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Insumos Tecnicos</title>
 	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
+	<link rel="stylesheet" type="text/css" href="../css/estilosalm.css" media="">
 </head>
 
 <script type="text/javascript">
@@ -23,8 +23,8 @@
 <body>
 
 	<header>
-		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
-		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+		<div id="logo"><img src="../imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="../imagenes/usuarios/<?php if(!empty($img_s)){
 			echo $img_s;
 		}else{
 			echo 'no_usuario.png';
@@ -43,12 +43,8 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="buscar.php">Buscar</a></li>
-				<li><a href="ver_insumos.php">Ver Todos</a></li>
-			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Crear Nuevo</a></li>
-			<?php endif; ?>
+				<li><a href="../index.php">Atras</a></li>
+				<li><a href="movimientos.php">Movimientos</a></li>
 			</ul>
 		</aside>
 		
@@ -56,16 +52,17 @@
 
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-						
+			<p>Buscar por descripcion:
+				<input type="text" name="buscar_tec" value="">
+				<input type="submit" name="ok" value="Ok" class="button button2">
+			</p>
+			
 			<table class="tablebds">
 				<tr>
-					<th>ID</th>
+					<th>Id</th>
+					<th>Usuario</th>
+					<th>Fecha</th>
 					<th>Descripcion</th>
-					<th>Marca</th>
-					<th>Cantidad</th>
-					<th>Unidad</th>
-					<th>Stock</th>
-					<th>Status</th>
 				</tr>
 
 				<?php 
@@ -73,36 +70,22 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td class="centro"><?php echo $fila['id_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
-					
-				<?php
-					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
-					if($limite >= 6) { 
-				?>
-					<td class="centro" bgcolor="#OOFF7F">OK</td>
+					<td class="centro"><?php echo $fila['id_bitacora_login']; ?></td>
+					<td class="izq"><?php 
+					$id_u = $fila['id_usuario']; 
 
-				<?php
-					}elseif($limite < 6 && $limite >0) { ?>
-					<td class="centro" bgcolor="#FF8C00">Pedir</td>
-				<?php }else{ ?>
-					<td class="centro" bgcolor="red">No hay</td>
-				<?php } ?>
+					$consulta_usuario = $conexion -> prepare("SELECT  * FROM usuarios WHERE id_usuario LIKE '$id_u'");
+					$consulta_usuario -> execute();
+					$resultado_usuario = $consulta_usuario -> fetchAll();
 
-				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
-					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
-				<?php endif; ?>
-
-				<?php if($rol_s == 'admin') : ?>
-					<td ><a class="button button2" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
-					<td ><a class="button button2" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
-				<?php endif; ?>
-				</tr>
+					foreach ($resultado_usuario as $fila_usuario){
+						echo $fila_usuario['login'];
+					}
+					?>	
+					</td>
+					<td class="centro"><?php echo $fila['fecha']; ?></td>
+					<td class="centro"><?php echo $fila['descripcion']; ?></td>
+					</tr>
 
 				<?php endforeach; ?>
 
@@ -116,7 +99,6 @@
 		</form>
 
 			<div class="navtable">
-				
 				<ul>
 					
 					<?php if($pagina == 1): ?>
@@ -141,7 +123,6 @@
 					<li id="navboton"><a href="?pagina=<?php echo $pagina + 1 ?>">&raquo;</a></li>
 					<?php endif; ?>
 				</ul>
-
 			</div>
 
 			<br>

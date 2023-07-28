@@ -1,7 +1,7 @@
 <?php
 
 
-function login($login_s){
+function login(){
 
 
 	//inicio session

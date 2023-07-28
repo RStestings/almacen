@@ -10,7 +10,7 @@
 body {
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
-    background: /*#E5E7E9*/ #1B1D35;
+    background: /*#E5E7E9*/ white;
     color: #fff;
 }
 
@@ -31,7 +31,7 @@ a:hover {
 
 .titulo {
     font-weight: 300;
-    color: #F90026 ;
+    color: #AB0000;
     text-align: center;
     margin: 60px 0 30px 0;
 }
@@ -39,14 +39,14 @@ a:hover {
 .border {
     border:none;
     margin-bottom: 5px; 
-    border-top:10px solid #F90026 ;
+    border-top:10px solid #AB0000 ;
     background: none;
     color:none;
 }
 
 
 .formulario {
-    background: #0C1344;
+    background: #333;
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 15px;

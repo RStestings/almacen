@@ -3,54 +3,123 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css\estilos.css">
-	<title>Rellenar Insumo</title>
+	<title>Insumos Tecnicos</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
 <body>
 
-	<h1 id="texto_centro">Registra Ingreso De Insumo</h1>
-	<hr>
+	<header>
 
-	<br>
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+			echo $img_s;
+		}else{
+			echo 'no_usuario.png';
+		}
+		?>"></div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
+	</header>
+	
+	<nav>
+		<p>
+			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
+		</p>		
+	</nav>
 
-	<form action="surtir_insumo_process.php" method="post">
-		<?php foreach ($resultado as $fila) : ?>
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="buscar.php">Atras</a></li>
+				<li><a href="insumos.php">Ver Todos</a></li>
 
-		<input type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
-		<input type="text" name="cant_insumo" hidden value="<?php echo $fila['cant_insumo']; ?>">
+			<?php //if($rol_s == 'admin') :  ?>
+				<li><a href="creacion.php">Crear Nuevo</a></li>
+			<?php //endif; ?>
+
+			</ul>
+		</aside>
 		
-		<h5>Existencias: <?php echo $fila['cant_insumo']; ?></h5>
-		
+		<article>
 
-		<table>
-			<tr>
-				<td>Descripcion: </td>
-				<td><input type="text" name="desc_insumo" disabled value="<?php echo $fila['desc_insumo']; ?>"></td>
-			</tr>
+			<h2>Registrar Ingreso De Insumo</h2>
 
-			<tr>
-				<td>Marca: </td>
-				<td><input type="text" name="marca_insumo" disabled value="<?php echo $fila['marca_insumo']; ?>"></td>
-			</tr>
+			<p>
+				<br>
+			</p>
 
-			<tr>
-				<td>Cantidad Ingresar: </td>
-				<td><input type="text" name="cant_surtir"  value="" autofocus></td>
-			</tr>
+			<div class="formularios">
+				<?php foreach ($resultado as $fila) : ?>
+				
+				<h5>
+					Existencias: <?php echo $fila['cant_insumo']; ?>:
+				</h5>
 
-			<tr>
-				<td>Unidad: </td>
-				<td><input type="text" name="unidad_insumo" disabled value="<?php echo $fila['unidad_insumo']; ?>"></td>
-			</tr>
+				<br>
 
+				<form class="" action="surtir_insumo_process.php" method="post">
 
-		</table>
-		<?php endforeach; ?>
-		<br><br>
-		
-		<input class="button button2" type="submit" name="ok" value="Surtir">
-		<a class="button button2" href="buscar.php">Salir</a>
-	</form>
+					<input id="forms" type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
+					<input type="text" name="cant_insumo" hidden value="<?php echo $fila['cant_insumo']; ?>">
+					
+				<table>
+					<tr>
+						<td><label>Descripcion: </label></td>
+						<td><input type="text" name="desc_insumo" disabled value="<?php echo $fila['desc_insumo']; ?>" ></td>
+					</tr>
+					
+					<tr>
+						<td><label>Marca: </label></td>
+						<td><input type="text" name="marca_insumo" disabled value="<?php echo $fila['marca_insumo']; ?>"></td>
+					</tr>	
+
+					<tr>
+						<td><label>Cantidad Ingresa: </label></td>
+						<td><input type="text" name="cant_surtir"  value="" autofocus></td>
+					</tr>
+
+					<tr>
+						<td><label>Unidad: </label></td>
+						<td><input type="text" name="unidad_insumo" disabled value="<?php echo $fila['unidad_insumo']; ?>"></td>
+					</tr>
+
+				</table>
+
+				<br><br>
+					<input class="button button2" type="submit" name="ok" value="Surtir">
+					<a class="button button2" href="insumos.php">Salir</a>
+					<?php endforeach; ?>
+			</div>
+
+<!-- Para registrar salida en tabla movimientos -->
+			<div class="formcomp">
+
+				<br>
+				<br>
+				<br>
+					
+				<table>
+					<p>Datos de quien registra: </p>
+					<tr>
+						<td><label>Tecnico: </label></td>
+						<td><input type="text" name="tecnico" value="<?php echo $login; ?>" disabled></td>
+					</tr>	
+
+					<tr>
+						<td><label>Fecha: </label></td>
+						<td><input disabled type="text" name="hoy"  value="<?php echo $hoy; ?>"></td>
+					</tr>
+
+				</table>
+					<?php  ?>
+				</form>
+			</div>
+
+		</article>
+
+	</section>
+
 
 </body>
-
+</html>

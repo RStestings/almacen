@@ -1,14 +1,24 @@
 <?php
 
-$rol = '';
+include('funciones/funcion_login.php');
+$login = login();
 
 include('funciones/funcion_rol.php');
-$rol_usuario = rol($rol);
+$rol_s = rol($login);
+
+include('funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
+
+include('funciones/funcion_img_login.php');
+$img_s = img($login);
+
+include('funciones/funcion_hoy.php');
+$hoy = hoy();
 
 //echo "$rol_usuario";
 
 
-if($rol_usuario == 'admin' OR $rol_usuario == 'almacen'){
+if($rol_s == 'admin' OR $rol_s == 'almacen'){
 
 	try {
 
