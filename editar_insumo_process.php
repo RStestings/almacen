@@ -8,6 +8,10 @@ $rol_s = rol($login);
 include('funciones/funcion_conexion.php');
 $conexion = fconexion();
 
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
+
 $id = $_POST['id_insumo'];
 
 

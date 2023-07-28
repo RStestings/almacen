@@ -19,6 +19,10 @@ $hoy = hoy();
 
 include('funciones/funcion_conexion.php');
 $conexion = fconexion();
+
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
 /*
 try{
 	Codigo a probar

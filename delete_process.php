@@ -15,6 +15,10 @@ $img_s = img($login);
 include('funciones/funcion_hoy.php');
 $hoy = hoy();
 
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
+
 if($rol_s == 'admin'){
 
 	try {

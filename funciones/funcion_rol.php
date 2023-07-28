@@ -23,8 +23,15 @@ try {
 			$rol = 'almacen';
 			break;
 		
-		default:
+		case 3:
 			$rol = 'usuario';
+			break;
+
+		case 4:
+			$rol = 'postventa';
+			break;
+		
+		default:
 			break;
 	}
 

@@ -15,6 +15,10 @@ $img_s = img($login);
 include('funciones/funcion_hoy.php');
 $hoy = hoy();
 
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
+
 require('views/index.view.php')
 
 ?>

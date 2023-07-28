@@ -6,6 +6,10 @@ $login = login();
 include('funciones/funcion_rol.php');
 $rol_s = rol($login);
 
+if($rol_s == 'postventa'){
+    header("Location: ../postventa/index.php");
+}
+
 if($rol_s == 'admin'){
 	try {
 

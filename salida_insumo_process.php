@@ -9,6 +9,10 @@ $id_s = id_s($login);
 include('funciones/funcion_hoyhora.php');
 $hoy = hoy();
 
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
+
 $id = $_POST['id_insumo'];
 
 if(empty($_POST['cant_surtir'])){

@@ -12,8 +12,12 @@ $nombre_s = nombre($login);
 include('../funciones/funcion_img_login.php');
 $img_s = img($login);
 
-include('../funciones/funcion_hoy.php');
+include('.../funciones/funcion_hoy.php');
 $hoy = hoy();
+
+if($rol_s == 'postventa'){
+    header("Location: ./postventa/index.php");
+}
 
 include('../funciones/funcion_conexion.php');
 $conexion = fconexion();
