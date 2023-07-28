@@ -3,11 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
 	<title>Insumos Tecnicos</title>
-=======
-	<title>Gestion Usuarios</title>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/estilosalm.css" media="">
 </head>
@@ -94,11 +90,7 @@
 					<td class="centro"><?php echo $fila['img_usuario']; ?></td>
 
 				<?php if($rol_s == 'admin') : ?>
-<<<<<<< HEAD
 					<td ><a class="button button2" href="editar_insumo.php?id_usuario=<?php echo $fila['id_usuario']; ?>">Editar</a></td>
-=======
-					<td ><a class="button button2" href="editar_usuario.php?id_usuario=<?php echo $fila['id_usuario']; ?>">Editar</a></td>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 					<td ><a class="button button2" href="delete_process.php?id_usuario=<?php echo $fila['id_usuario']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
 				<?php endif; ?>
 				</tr>

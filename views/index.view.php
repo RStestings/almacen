@@ -31,20 +31,12 @@
 	<section>
 		<aside id="izq">
 			<ul>
-<<<<<<< HEAD
 				<li><a href="insumos.php">Insumos</a></li>
-=======
-				<li><a href="buscar.php">Insumos</a></li>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 				<li><a href="herramienta.php">Herramienta</a></li>
 
 			<?php if($rol_s == 'admin') :  ?>
 				<li><a href="#">Tecnicos</a></li>
-<<<<<<< HEAD
 				<li><a href="adm/movimientos.php">Movimientos</a></li>
-=======
-				<li><a href="#">Movimientos</a></li>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 				<li><a href="adm/usuarios.php">Usuarios</a></li>
 			<?php endif; ?>
 
@@ -54,20 +46,12 @@
 		<article>
 
 			<div class="zonamenus">
-<<<<<<< HEAD
 				<div id="menu1" class="zonamenus"><a href="insumos.php"><img src="imagenes/insumos.png"></a></div>
-=======
-				<div id="menu1" class="zonamenus"><a href="buscar.php"><img src="imagenes/insumos.png"></a></div>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 				<div id="menu2" class="zonamenus"><a a href="herramienta.php"><img src="imagenes/herramientas.png"></a></div>
 			
 			<?php if($rol_s == 'admin') :  ?>
 				<div id="menu3" class="zonamenus"><a a href=""><img src="imagenes/datos_tecnicos.png"></a></div>
-<<<<<<< HEAD
 				<div id="menu4" class="zonamenus"><a a href="adm/movimientos.php"><img src="imagenes/movimientos.png"></a></div>
-=======
-				<div id="menu4" class="zonamenus"><a a href=""><img src="imagenes/movimientos.png"></a></div>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 				<div id="menu5" class="zonamenus"><a a href="adm/usuarios.php"><img src="imagenes/gestion_usuarios.png"></a></div>
 			<?php endif; ?>					
 			</div>			

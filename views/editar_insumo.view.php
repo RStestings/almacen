@@ -31,21 +31,11 @@
 	<section>
 		<aside id="izq">
 			<ul>
-<<<<<<< HEAD
 				<li><a href="buscar.php">Atras</a></li>
 				<li><a href="insumos.php">Ver Todos</a></li>
 
 			<?php //if($rol_s == 'admin') :  ?>
 				<li><a href="creacion.php">Crear Nuevo</a></li>
-=======
-				<li><a href="buscar.php">Insumos</a></li>
-				<li><a href="herramienta.php">Herramienta</a></li>
-
-			<?php //if($rol_s == 'admin') :  ?>
-				<li><a href="#">Tecnicos</a></li>
-				<li><a href="#">Movimientos</a></li>
-				<li><a href="adm/usuarios.php">Usuarios</a></li>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 			<?php //endif; ?>
 
 			</ul>
@@ -98,11 +88,7 @@
 
 				<br><br>
 					<input class="button button2" type="submit" name="ok" value="Guardar">
-<<<<<<< HEAD
 					<a class="button button2" href="insumos.php">Salir</a>
-=======
-					<a class="button button2" href="buscar.php">Salir</a>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 					<?php endforeach; ?>
 
 

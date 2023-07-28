@@ -522,31 +522,18 @@ td .centro {
 	float: left;
 	width: 80%;
 	height: 40px;
-<<<<<<< HEAD
 	/*background: #D50000;*/
 	font-family: 'Kalam', cursive;
 	align-content: center;
 	text-align: center;
 	vertical-align: center;
-=======
-	background: #D50000;
-	font-family: 'Kalam', cursive;
-	align-content: center;
-	text-align: center;
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 	line-height: 40px;
 	color: white;
 }
 
-<<<<<<< HEAD
 #navboton {
 	float: left;
 	margin-left: 2%;
-=======
-.navtable #navboton {
-	float: left;
-	margin: 0 10px;
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 	width: 5%;
 	height: 40px;
 	background: gray;
@@ -556,7 +543,6 @@ td .centro {
 	line-height: 40px;
 }
 
-<<<<<<< HEAD
 #navboton:hover {
 	background: #5B5673;
 }
@@ -591,8 +577,6 @@ td .centro {
 	color: white;
 }
 
-=======
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 article h1 {
 	font-family: 'Kalam', cursive;
 	font-size: 40px;
@@ -621,15 +605,12 @@ footer {
 	color: white;
 }
 
-<<<<<<< HEAD
 .alert {
 	width: 80%;
 	height: 10%;
 	background: red;
 }
 
-=======
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 
 /*estilos para convertir lista en tipo boton*/
 

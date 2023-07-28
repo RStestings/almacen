@@ -43,13 +43,8 @@
 	<section>
 		<aside id="izq">
 			<ul>
-<<<<<<< HEAD
 				<li><a href="insumos.php">Regresar</a></li>
 				<li><a href="ver_insumos.php">Ver Todos</a></li>
-=======
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="insumos.php">Ver Todos</a></li>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
 				<li><a href="creacion.php">Crear Nuevo</a></li>
 			<?php endif; ?>
@@ -125,13 +120,6 @@
 
 			<div class="navtable">
 				<ul>
-<<<<<<< HEAD
-=======
-					<li id="navboton"><</li>
-					<li id="navboton">1</li>
-					<li id="navboton">2</li>
-					<li id="navboton">></li>
->>>>>>> fc32f1bfe696ac8769beba975885a79acc19a2c6
 				</ul>
 			</div>
 
