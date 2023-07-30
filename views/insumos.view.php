@@ -73,12 +73,12 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td class="centro"><?php echo $fila['id_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['id_insumo']; ?></td>
 					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
 					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['unidad_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
 					
 				<?php
 					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
@@ -99,8 +99,8 @@
 				<?php endif; ?>
 
 				<?php if($rol_s == 'admin') : ?>
-					<td ><a class="button button2" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
-					<td ><a class="button button2" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
+					<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
+					<td ><a class="button button3" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
 				<?php endif; ?>
 				</tr>
 

@@ -34,20 +34,17 @@
 			<ul>
 				<li><a href="refpostventa.php">Refacciones</a></li>
 				<li><a href="movimientos.php">Registro E/S</a></li>
+				<?php if($rol_s == 'admin') : ?>
+					<li><a href="../index.php">Regresar Almacen</a></li>
+				<?php endif; ?>
 			</ul>
 		</aside>
 		
 		<article>
 
 			<div class="zonamenus">
-				<div id="menu1" class="zonamenus"><a href="insumos.php"><img src="imagenes/insumos.png"></a></div>
-				<div id="menu2" class="zonamenus"><a a href="herramienta.php"><img src="imagenes/herramientas.png"></a></div>
-			
-			<?php if($rol_s == 'admin') :  ?>
-				<div id="menu3" class="zonamenus"><a a href=""><img src="imagenes/datos_tecnicos.png"></a></div>
-				<div id="menu4" class="zonamenus"><a a href="adm/movimientos.php"><img src="imagenes/movimientos.png"></a></div>
-				<div id="menu5" class="zonamenus"><a a href="adm/usuarios.php"><img src="imagenes/gestion_usuarios.png"></a></div>
-			<?php endif; ?>					
+				<div id="menu1" class="zonamenus"><a href="refpostventa.php"><img src="imagenes/insumos.png"></a></div>
+				<div id="menu2" class="zonamenus"><a a href="herramienta.php"><img src="imagenes/herramientas.png"></a></div>					
 			</div>			
 
 		</article>

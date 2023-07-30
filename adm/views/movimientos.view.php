@@ -57,7 +57,7 @@
 				<input type="submit" name="ok" value="Ok" class="button button2">
 			</p>
 			
-			<table class="tablebds">
+			<table class="tablemov">
 				<tr>
 					<th>ID</th>
 					<th>Insumo</th>
@@ -74,7 +74,7 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td class="centro"><?php echo $fila['id_movi']; ?></td>
+					<td id="centro"><?php echo $fila['id_movi']; ?></td>
 					<td class="izq"><?php 
 					$id_i = $fila['id_insumo']; 
 
@@ -98,10 +98,10 @@
 					}
 					?>	
 					</td>
-					<td class="centro"><?php echo $fila['cantidad']; ?></td>
+					<td id="centro"><?php echo $fila['cantidad']; ?></td>
 					<td class="centro"><?php echo $fila['proyecto']; ?></td>
 					<td class="centro"><?php echo $fila['tecnico']; ?></td>
-					<td class="centro"><?php echo $fila['fecha']; ?></td>
+					<td id="centro"><?php echo $fila['fecha']; ?></td>
 					<td class="centro"><?php echo $fila['tipo_mov']; ?></td>
 				</tr>
 

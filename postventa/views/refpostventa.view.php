@@ -65,13 +65,13 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td class="centro"><?php echo $fila['id_refpostventa']; ?></td>
+					<td id="centro"><?php echo $fila['id_refpostventa']; ?></td>
 					<td class="izq"><?php echo $fila['desc_refpostventa']; ?></td>
 				
 				<!- Botones Accion -->
 					<td ><a class="button button2" href="salida_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Salida</a></td>
 					<td ><a class="button button2" href="surtir_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Ingreso</a></td>
-					<td ><a class="button button2" href="editar_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Editar</a></td>
+					<td ><a class="button button4" href="editar_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Editar</a></td>
 
 				<?php if($rol_s == 'admin') : ?>
 					<td ><a class="button button3" href="delete_process.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>" onclick ='return confirmacion()'><i class="fa fa-minus-square" aria-hidden="true"></i>Eliminar</a></td>

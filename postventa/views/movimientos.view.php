@@ -47,13 +47,18 @@
 			</ul>
 		</aside>
 		
-		<article>
-
+		<article>		
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 			<h2>
 				Reporte Entradas - Salidas Refacciones
 			</h2>
+
+			<p>
+				Exportar:
+				<br>
+				<a href="#">Excel</a> <a href="#">PDF</a>
+			</p>
 			
 			<table class="tablemov">
 				<tr>

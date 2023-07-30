@@ -38,6 +38,7 @@
 				<li><a href="#">Tecnicos</a></li>
 				<li><a href="adm/movimientos.php">Movimientos</a></li>
 				<li><a href="adm/usuarios.php">Usuarios</a></li>
+				<li><a href="postventa/index.php">Postventa</a></li>
 			<?php endif; ?>
 
 			</ul>
