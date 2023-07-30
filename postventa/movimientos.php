@@ -1,0 +1,58 @@
+<?php
+
+include('../funciones/funcion_login.php');
+$login = login();
+
+include('../funciones/funcion_rol.php');
+$rol_s = rol($login);
+
+include('../funciones/funcion_nombre_login.php');
+$nombre_s = nombre($login);
+
+include('../funciones/funcion_img_login.php');
+$img_s = img($login);
+
+include('../funciones/funcion_hoy.php');
+$hoy = hoy();
+
+include('../funciones/funcion_conexion.php');
+$conexion = fconexion();
+
+if($rol_s == 'almacen' || $rol_s == 'usuario'){
+    header("Location: ../postventa/index.php");
+}
+
+/*
+try{
+	Codigo a probar
+}catch(){
+	Muestra el error
+}
+*/
+
+
+try {
+	//$var_guarda_conexion = new PDO ('tipo:host=ruta;dbname=nombre_basededatos', 'usuario', 'password');
+	//echo 'Conexion OK <br/><br/>';
+	
+	$_POST['buscar_tec'] = isset($_POST['buscar_tec']) ? $_POST['buscar_tec'] : false;
+
+	//Insertar datos
+	//$consulta = $conexion -> prepare('INSET INTO usuarios VALUES(null,"Eder")');
+	//$consulta -> execute();
+
+
+	$consulta_preparada = $conexion -> prepare("SELECT * FROM movimientos_refpostventa");
+	$consulta_preparada -> execute();
+	$resultado = $consulta_preparada -> fetchAll();	
+
+
+} catch (PDOException $e) {
+	echo "Error: " . $e -> getMessage();
+}
+
+//$rol= 'admin';
+
+require('views\movimientos.view.php');
+	
+?>
