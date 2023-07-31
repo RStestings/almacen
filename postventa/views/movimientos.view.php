@@ -57,7 +57,8 @@
 			<p>
 				Exportar:
 				<br>
-				<a href="#">Excel</a> <a href="#">PDF</a>
+				<a href="./excel_export.php">Excel</a> 
+				<a href="#">PDF</a>
 			</p>
 			
 			<table class="tablemov">
