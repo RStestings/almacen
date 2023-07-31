@@ -1,17 +1,16 @@
 <?php
 
-include('funciones/funcion_login.php');
+include('funciones/funciones.php');
 $login = login();
 
-include('funciones/funcion_rol.php');
 $rol_s = rol($login);
+
+$conexion = fconexion();
 
 if($rol_s == 'postventa'){
     header("Location: ../postventa/index.php");
 }
 
-include('funciones/funcion_conexion.php');
-$conexion = fconexion();
 
 $id = $_POST['id_insumo'];
 

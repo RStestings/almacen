@@ -1,9 +1,8 @@
 <?php
 
-include('funciones/funcion_login.php');
+include('funciones/funciones.php');
 $login = login();
 
-include('funciones/funcion_rol.php');
 $rol_s = rol($login);
 
 if($rol_s == 'postventa'){
