@@ -46,8 +46,9 @@
 			</p>
 
 			<div class="formularios">
-				<?php foreach ($resultado as $fila) : ?>
-				
+
+				<?php foreach($resultado as $fila) : ?>
+
 				<br>
 
 				<form class="" action="surtir_refpostventa_process.php" method="post">
@@ -62,13 +63,15 @@
 						<td><label>Cantidad Ingresa: </label></td>
 						<td><input type="text" name="cant_surtir"  value="" autofocus></td>
 					</tr>
+				
+				<?php endforeach; ?>
 
 				</table>
 
 				<br>
 					<input class="button button2" type="submit" name="ok" value="Surtir">
 					<a class="button button2" href="refpostventa.php">Salir</a>
-					<?php endforeach; ?>
+				
 			</div>
 
 			<br>

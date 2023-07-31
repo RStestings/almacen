@@ -15,14 +15,12 @@ $img_s = img($login);
 include('../funciones/funcion_hoy.php');
 $hoy = hoy();
 
-if($rol_s == 'postventa'){
+if($rol_s == 'almacen' || $rol_s == 'usuario'){
     header("Location: ./postventa/index.php");
 }
 
 //echo "$rol_usuario";
 
-
-if($rol_s == 'admin' OR $rol_s == 'almacen'){
 
 	try {
 
@@ -40,9 +38,5 @@ if($rol_s == 'admin' OR $rol_s == 'almacen'){
 
 require ('views\salida_refpostventa.view.php');
 
-} else {
-	echo 'El usuario no tiene cumple con las credenciales';
-	header ('Location: buscar.php');
-}
 
 ?>

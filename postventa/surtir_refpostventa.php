@@ -15,11 +15,10 @@ $img_s = img($login);
 include('../funciones/funcion_hoy.php');
 $hoy = hoy();
 
-if($rol_s == 'postventa' || $rol_s == 'usuario'){
+if($rol_s == 'almacen' || $rol_s == 'usuario'){
     header("Location: ../index.php");
 }
 
-if($rol_s == 'admin' OR $rol_s == 'almacen'){
 	try {
 
 	$id_refpostventa = $_GET['id_refpostventa'];
@@ -33,9 +32,8 @@ if($rol_s == 'admin' OR $rol_s == 'almacen'){
 	} catch (PDOException $e) {
 		echo "Error" . $e -> getMessage();
 	}	
-}else{}
 
 
-require ('views\surtir_refpostventa.view.php');
+require ('./views/surtir_refpostventa.view.php');
 
 ?>
