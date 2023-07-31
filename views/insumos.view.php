@@ -74,8 +74,8 @@
 				?>
 				<tr>
 					<td id="centro"><?php echo $fila['id_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
+					<td><?php echo $fila['desc_insumo']; ?></td>
+					<td><?php echo $fila['marca_insumo']; ?></td>
 					<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
 					<td id="centro"><?php echo $fila['unidad_insumo']; ?></td>
 					<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
