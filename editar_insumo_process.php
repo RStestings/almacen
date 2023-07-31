@@ -1,9 +1,8 @@
 <?php
 
-include('funciones/funcion_login.php');
+include('funciones/funciones');
 $login = login();
 
-include('funciones/funcion_rol.php');
 $rol_s = rol($login);
 include('funciones/funcion_conexion.php');
 $conexion = fconexion();

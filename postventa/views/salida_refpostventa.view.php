@@ -32,7 +32,6 @@
 		<aside id="izq">
 			<ul>
 				<li><a href="refpostventa.php">Atras</a></li>
-				<li><a href="insumos.php">Ver Todos</a></li>
 				<li><a href="creacion.php">Crear Nuevo</a></li>
 			</ul>
 		</aside>

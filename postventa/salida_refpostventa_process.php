@@ -1,18 +1,14 @@
 <?php
 
-include('../funciones/funcion_login.php');
+include('../funciones/funciones.php');
 $login = login();
 
-include('../funciones/funcion_id_login.php');
 $id_s = id_s($login);
 
-include('../funciones/funcion_rol.php');
 $rol_s = rol($login);
 
-include('../funciones/funcion_hoyhora.php');
 $hoy = hoy();
 
-include('../funciones/funcion_conexion.php');
 $conexion = fconexion();
 
 if($rol_s == 'admin' || $rol_s == 'postventa'){

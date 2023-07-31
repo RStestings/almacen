@@ -1,12 +1,10 @@
 <?php
 
-include('funciones/funcion_login.php');
+include('funciones/funciones.php');
 $login = login();
 
-include('funciones/funcion_id_login.php');
 $id_s = id_s($login);
 
-include('funciones/funcion_hoyhora.php');
 $hoy = hoy();
 
 if($rol_s == 'postventa'){

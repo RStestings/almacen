@@ -1,11 +1,9 @@
 <?php
 
-$login_s = '';
 
-include('funciones/funcion_login.php');
+include('funciones/funciones.php');
 $login = login($login_s);
 
-include('funciones/funcion_hoyhora.php');
 $hoy = hoy();
 
 echo $login .' - ' . $hoy;
