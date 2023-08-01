@@ -36,11 +36,6 @@ try {
 	//$consulta = $conexion -> prepare('INSET INTO usuarios VALUES(null,"Eder")');
 	//$consulta -> execute();
 
-
-	$consulta_preparada = $conexion -> prepare("SELECT * FROM insumos");
-	$consulta_preparada -> execute();
-	$resultado = $consulta_preparada -> fetchAll();
-
 	
 	if (empty($buscar)){
 		$buscar= '%' . $_POST['buscar_insumo'] . '%';

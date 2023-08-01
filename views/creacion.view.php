@@ -75,24 +75,30 @@
 					</tr>
 
 				</table>
-							<?php if(!empty($errores)): ?>
-						<div class="alert">
-							<?php echo '<br>'.$errores; ?>
-						</div>
-							<?php elseif($enviado): ?>
-						<div class="alert success">
-						<p>Enviado Correctamente</p>
-						</div>
-						<?php endif ?>
 
 						<br><input type="submit" class="button button2" name="crear_ok" value="Guardar"> <a class="button button2" href="insumos.php">Salir</a>
 
 				</form>
+					<?php if(!empty($errores)): ?>
+						<div class="alert">
+							<p><?php echo  $errores; ?></p>
+						</div>
+							<?php elseif($enviado): ?>
+						<div class="alert success">
+							<p>Enviado Correctamente</p>
+						</div>
+					<?php endif ?>
 			</div>
+
+			
 
 		</article>
 
+		
+
 	</section>
+
+	
 
 
 </body>

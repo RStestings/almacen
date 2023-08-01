@@ -3,6 +3,8 @@
 include('funciones/funciones.php');
 $login = login();
 
+$id_s = id_s($login);
+
 $rol_s = rol($login);
 
 $nombre_s = nombre($login);

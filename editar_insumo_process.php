@@ -1,10 +1,10 @@
 <?php
 
-include('funciones/funciones');
+include('funciones/funciones.php');
 $login = login();
 
 $rol_s = rol($login);
-include('funciones/funcion_conexion.php');
+ 
 $conexion = fconexion();
 
 if($rol_s == 'postventa'){

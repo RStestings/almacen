@@ -55,16 +55,16 @@ try {
 		$marca_insumo = trim($marca_insumo);
 		$marca_insumo = filter_var($marca_insumo, FILTER_SANITIZE_STRING);
 	}else{
-		$errores.='Marca Vacia <br>';
+		$errores.='Marca Vacia<br>';
 	}
 
 	if(!empty($cant_insumo)){
 		$cant_insumo = trim($cant_insumo);
 			if(!filter_var($cant_insumo, FILTER_VALIDATE_INT)){
-				$errores.='Cantidad no valida <br>';
+				$errores.='Cantidad no valida<br>';
 			}
 	}else{
-		$errores.='Cantidad Vacia  <br>';
+		$errores.='Cantidad Vacia<br>';
 	}
 
 	if(!empty($unidad_insumo)){

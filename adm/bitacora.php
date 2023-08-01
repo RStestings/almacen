@@ -11,12 +11,12 @@ $img_s = img($login);
 
 $hoy = hoy();
 
+$conexion = fconexion();
+
 if($rol_s == 'postventa'){
     header("Location: ./postventa/index.php");
 }
 
-include('../funciones/funcion_conexion.php');
-$conexion = fconexion();
 
 
 /*

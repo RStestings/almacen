@@ -12,12 +12,12 @@
 	<header>
 
 		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
-		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+		<div id="icono1" class="redes"><a href="./profiles/profile_users.php?id_usuario=<?php echo $id_s; ?>"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
 			echo $img_s;
 		}else{
 			echo 'no_usuario.png';
 		}
-		?>"></div>
+		?>"></a></div>
 		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
 		<div id="iconocerrar" class="redes"><a href="cerrar.php">Salir</a></div>
 	</header>

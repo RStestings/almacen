@@ -204,7 +204,8 @@ section {
 	position: relative;
 	margin: 0;
 	width: 100%;
-	height: 600px;
+	min-height: 823px;
+	max-height: 823px;
 	/* background: #aaa; */
 }
 
@@ -213,7 +214,7 @@ aside#izq {
 	left: 0;
 	top: 0;
 	width: 15%;
-	height: 600px;
+	height: 100%;
 	background: #333;
 }
 
@@ -245,7 +246,7 @@ aside#der {
 	right: 0;
 	top: 0;
 	width: 15%;
-	height: 500px;
+	height: 100%;
 	background: #333;
 }
 
@@ -501,8 +502,10 @@ article h2{
 .tablebds th {
 	height: 35px;
 	font-size: 14px;
+	border-top: 3px solid #000;
 	border-bottom: 3px solid #000;
 	background: #525151;
+	color: #ccc;
 }
 
 .tablebds tr {
@@ -650,9 +653,34 @@ footer {
 }
 
 .alert {
+	margin-top: 5%;
 	width: 80%;
-	height: 10%;
-	background: red;
+	height: 145px;
+	background: rgb(255, 154, 154);
+}
+
+.alert p {
+	list-style-type: square;
+	line-height: 30px;
+	justify-content: center;
+	align-content: center;
+	text-align: justify;
+}
+
+.success {
+	margin-top: 5px;
+	width: 80%;
+	height: 30px;
+	background: rgb(154, 255, 193);
+}
+
+.success li {
+	list-style-type: square;
+	line-height: 30px;
+	justify-content: center;
+	align-content: center;
+	vertical-align: center;
+	text-align: center;
 }
 
 
@@ -731,3 +759,51 @@ footer {
     background-color: #555555;
     color: white;
 }
+
+.areaprofile{
+	position: absolute;
+	margin: 40px 60px;
+	width: 550px;
+	height: 600px;
+	/*background: #272222;*/
+}
+
+
+.areaprofile img{
+	position: absolute;
+	margin: 50px 50px;
+	width: 140px;
+	height: 200px;
+	line-height: 200px;
+	border-radius: 20px;
+	/*background: #333;*/
+}
+
+.profileformularios{
+	position: absolute;
+	margin: 50px 220px;
+	width: 55%;
+	height: 80%;
+	border-radius: 20px;
+	/* background: #30318d; */
+}
+
+.profileformularios form{
+	margin: 30px 20px;
+	font-family: 'Kalam' sans-serif, cursive;
+	font-weight: bold;
+}
+
+.profilebotones{
+	position: absolute;
+	margin: 50% 50px;
+	padding-left: 20px;
+	width: 25%;
+	height: 40%;
+	border-radius: 20px;
+	align-content: center;
+	vertical-align: center;
+	/* background: #d80000; */
+}
+
+
