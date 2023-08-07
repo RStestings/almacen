@@ -56,9 +56,15 @@
 					<input id="forms" type="text" name="id_refpostventa" hidden value="<?php echo $fila['id_refpostventa']; ?>">
 					
 				<table>
+
+					<tr>
+						<td><label>Numero Parte: </label></td>
+						<td><input type="text" name="numparte_refpostventa" value="<?php echo $fila['numparte_refpostventa']; ?>" ></td>
+					</tr>
+
 					<tr>
 						<td><label>Descripcion: </label></td>
-						<td><input autofocus type="text" name="desc_refpostventa" value="<?php echo $fila['desc_refpostventa']; ?>" ></td>
+						<td><input  type="text" name="desc_refpostventa" value="<?php echo $fila['desc_refpostventa']; ?>" ></td>
 					</tr>
 
 				</table>

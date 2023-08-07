@@ -65,7 +65,7 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td id="centro"><?php echo $fila['id_refpostventa']; ?></td>
+					<td id="centro"><?php echo $fila['numparte_refpostventa']; ?></td>
 					<td class="izq"><?php echo $fila['desc_refpostventa']; ?></td>
 				
 				<!- Botones Accion -->

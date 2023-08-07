@@ -241,6 +241,12 @@ aside#izq ul li a {
 	color: white;
 }
 
+aside#izq a{
+	display: block;
+	width: 100%;
+	height: 100%;
+} 
+
 aside#der {
 	position: absolute;
 	right: 0;

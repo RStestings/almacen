@@ -48,6 +48,12 @@
 
 				<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 				<table>
+
+					<tr>
+						<td><label># Parte: </label></td>
+						<td><input type="text" name="numparte_refpostventa" placeholder="# Parte:" value="<?php if(!$enviado && isset($numparte)) echo $numparte; ?>"></td>
+					</tr>
+
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input type="text" name="desc_refpostventa" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_refpostventa)) echo $desc_refpostventa; ?>"></td>

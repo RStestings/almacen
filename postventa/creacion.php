@@ -36,16 +36,22 @@ try {
 	if(isset($_POST['crear_ok'])){
 
 		$desc_refpostventa = $_POST['desc_refpostventa'];
+		$numparte = $_POST['numparte_refpostventa'];
 
 	if(!empty($desc_refpostventa)){
 		$desc_refpostventa = trim($desc_refpostventa);
-		$desc_refpostventa = filter_var($desc_refpostventa, FILTER_SANITIZE_STRING);
 	}else{
 		$errores.='Descripcion Vacia <br>';
 	}
 
-	if(!empty($desc_refpostventa)){
-		$consulta = $conexion -> prepare("INSERT INTO refac_postventa VALUES(null, '$desc_refpostventa')");
+	if(!empty($numparte)){
+		$numparte = trim($numparte);
+	}else{
+		$errores.='Numero de Parte Vacia <br>';
+	}
+
+	if(!empty($desc_refpostventa) && !empty($numparte)){
+		$consulta = $conexion -> prepare("INSERT INTO refac_postventa VALUES(null, '$numparte', '$desc_refpostventa')");
 		$consulta -> execute();
 
 		$enviado = true;

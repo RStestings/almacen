@@ -31,9 +31,10 @@ try {
 }
 
 ?>
-    <table>
+    	<table class="tablemov">
 				<tr>
 					<th>ID</th>
+					<th># Parte</th>
 					<th>Insumo</th>
 					<th>Usuario</th>
 					<th>Cantidad</th>
@@ -48,8 +49,8 @@ try {
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td align="center"><?php echo $fila['id_movimientopostventa']; ?></td>
-					<td><?php 
+					<td class="centro"><?php echo $fila['id_movimientopostventa']; ?></td>
+					<td class="izq"><?php 
 					$id_i = $fila['id_refpostventa']; 
 
 					$consulta_insumo = $conexion -> prepare("SELECT  * FROM refac_postventa WHERE id_refpostventa LIKE '$id_i'");
@@ -57,10 +58,16 @@ try {
 					$resultado_insumo = $consulta_insumo -> fetchAll();
 
 					foreach ($resultado_insumo as $fila_insumo){
-						echo $fila_insumo['desc_refpostventa'];
+						echo $fila_insumo['numparte_refpostventa'];
 					}
 					?></td>
-					<td><?php 
+
+					<td>
+					<?php
+						echo $fila_insumo['desc_refpostventa']; 
+					?></td>
+
+					<td class="izq"><?php 
 					$id_u = $fila['id_usuario']; 
 
 					$consulta_usuario = $conexion -> prepare("SELECT  * FROM usuarios WHERE id_usuario LIKE '$id_u'");
@@ -72,11 +79,11 @@ try {
 					}
 					?>	
 					</td>
-					<td align="center"><?php echo $fila['cantidad']; ?></td>
+					<td id="centro"><?php echo $fila['cantidad']; ?></td>
 					<td><?php echo $fila['proyecto']; ?></td>
 					<td><?php echo $fila['tecnico']; ?></td>
-					<td align="center"><?php echo $fila['fecha']; ?></td>
-					<td><?php echo $fila['tipo_movimiento']; ?></td>
+					<td id="centro"><?php echo $fila['fecha']; ?></td>
+					<td id="small"><?php echo $fila['tipo_movimiento']; ?></td>
 				</tr>
 
 				<?php endforeach; ?>

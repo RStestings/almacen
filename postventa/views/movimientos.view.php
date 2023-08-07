@@ -64,6 +64,7 @@
 			<table class="tablemov">
 				<tr>
 					<th>ID</th>
+					<th># Parte</th>
 					<th>Insumo</th>
 					<th>Usuario</th>
 					<th>Cantidad</th>
@@ -87,9 +88,15 @@
 					$resultado_insumo = $consulta_insumo -> fetchAll();
 
 					foreach ($resultado_insumo as $fila_insumo){
-						echo $fila_insumo['desc_refpostventa'];
+						echo $fila_insumo['numparte_refpostventa'];
 					}
 					?></td>
+
+					<td>
+					<?php
+						echo $fila_insumo['desc_refpostventa']; 
+					?></td>
+
 					<td class="izq"><?php 
 					$id_u = $fila['id_usuario']; 
 

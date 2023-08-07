@@ -7,7 +7,7 @@ $id_s = id_s($login);
 
 $rol_s = rol($login);
 
-$hoy = hoy();
+$hoy = hoy_hora();
 
 $conexion = fconexion();
 
