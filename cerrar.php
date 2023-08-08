@@ -2,14 +2,13 @@
 
 
 include('funciones/funciones.php');
-$login = login($login_s);
+$login = login();
 
 $hoy = hoy();
 
 echo $login .' - ' . $hoy;
 
 /* L O C A L I Z A  U S U A R I O */
-include('funciones/funcion_conexion.php');
 $conexion = fconexion();
 
 $consulta = $conexion -> prepare("SELECT * FROM usuarios WHERE login = '$login' ");

@@ -22,7 +22,13 @@ if(empty($_POST['cant_surtir'])){
 $proyecto = $_POST['proyecto'];
 $tecnico = $_POST['tecnico'];
 $cantidad_s = $_POST['cant_surtir'];
+$cantidad = $_POST['cant_refpostventa'];
 
+if($cantidad > 0){
+	$cantidad = $_POST['cant_refpostventa'] - $cantidad_s;
+	$consulta_update = $conexion -> prepare("UPDATE refac_postventa SET cant_refpostventa ='$cantidad' WHERE id_refpostventa = '$id'");
+	$consulta_update ->execute();	
+}
 
 
 try {
@@ -46,5 +52,6 @@ else{
 
 //echo $cantidad_s.' '.$id.' '.$id_s.' '.$proyecto.' ' .$tecnico.' '.$hoy;
 header("Location: refpostventa.php");
+
 
 ?>

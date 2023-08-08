@@ -58,6 +58,9 @@
 				<tr>
 					<th>ID</th>
 					<th>Descripcion</th>
+					<th>Cantidad</th>
+					<th>Costo</th>
+					<th>Status</th>
 				</tr>
 
 				<?php 
@@ -67,7 +70,15 @@
 				<tr>
 					<td id="centro"><?php echo $fila['numparte_refpostventa']; ?></td>
 					<td class="izq"><?php echo $fila['desc_refpostventa']; ?></td>
-				
+					<td id="centro"><?php echo $fila['cant_refpostventa']; ?></td>
+					<td id="centro"><?php echo "$ ".$fila['costo_refpostventa']; ?></td>
+					<?php if ($fila['cant_refpostventa'] >= 5) { ?>
+						<td><div class="status activo">Activo</div></td>
+					<?php }elseif ($fila['cant_refpostventa'] > 0 && $fila['cant_refpostventa'] < 5){ ?>
+						<td><div class="status pedir">Pedir</div></td>
+					<?php }else{ ?>
+						<td><div class="status inactivo">Inactivo</div></td>
+					<?php } ?>		
 				<!- Botones Accion -->
 					<td ><a class="button button2" href="salida_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Salida</a></td>
 					<td ><a class="button button2" href="surtir_refpostventa.php?id_refpostventa=<?php echo $fila['id_refpostventa']; ?>">Ingreso</a></td>

@@ -46,7 +46,7 @@
 			<div class="formularios">
 				<br>
 
-				<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+				<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" autocomplete="off">
 				<table>
 
 					<tr>
@@ -57,6 +57,16 @@
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input type="text" name="desc_refpostventa" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_refpostventa)) echo $desc_refpostventa; ?>"></td>
+					</tr>
+
+					<tr>
+						<td><label>Cantidad: </label></td>
+						<td><input type="text" name="cant_refpostventa" placeholder="Cantidad:" value="<?php if(!$enviado && isset($cant_refpostventa)) echo $cant_refpostventa; ?>"></td>
+					</tr>
+
+					<tr>
+						<td><label>Precio: </label></td>
+						<td><input type="text" name="costo_refpostventa" placeholder="Precio $:" value="<?php if(!$enviado && isset($costo_refpostventa)) echo $costo_refpostventa; ?>"></td>
 					</tr>
 				</table>
 							<?php if(!empty($errores)): ?>

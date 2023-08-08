@@ -51,7 +51,7 @@
 
 				<br>
 
-				<form class="" action="editar_refpostventa_process.php" method="post">
+				<form class="" action="editar_refpostventa_process.php" method="post" autocomplete="off">
 
 					<input id="forms" type="text" name="id_refpostventa" hidden value="<?php echo $fila['id_refpostventa']; ?>">
 					
@@ -65,6 +65,16 @@
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input  type="text" name="desc_refpostventa" value="<?php echo $fila['desc_refpostventa']; ?>" ></td>
+					</tr>
+
+					<tr>
+						<td><label>Cantidad: </label></td>
+						<td><input type="text" name="cant_refpostventa" value="<?php echo $fila['cant_refpostventa']; ?>" ></td>
+					</tr>
+
+					<tr>
+						<td><label>Precio: </label></td>
+						<td><input  type="text" name="costo_refpostventa" value="<?php echo $fila['costo_refpostventa']; ?>" ></td>
 					</tr>
 
 				</table>

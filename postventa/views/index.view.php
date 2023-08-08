@@ -32,8 +32,8 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="refpostventa.php">Refacciones</a></li>
-				<li><a href="movimientos.php">Registro E/S</a></li>
+				<li><a id="botdiv" href="refpostventa.php">Refacciones</a></li>
+				<li><a id="botdiv" href="movimientos.php">Registro E/S</a></li>
 				<?php if($rol_s == 'admin') : ?>
 					<li><a href="../index.php">Regresar Almacen</a></li>
 				<?php endif; ?>

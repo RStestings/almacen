@@ -21,7 +21,7 @@ if($rol_s == 'almacen' || $rol_s == 'usuario'){
 	try {
 
 	$id_refpostventa = $_GET['id_refpostventa'];
-
+	
 	$conexion = new PDO('mysql: host=localhost; dbname=almacen', 'root', '');
 	$consulta_preparada = $conexion -> prepare("SELECT * FROM refac_postventa WHERE id_refpostventa = '$id_refpostventa'");
 	$consulta_preparada -> execute();

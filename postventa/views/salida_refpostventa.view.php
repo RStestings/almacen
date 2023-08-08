@@ -40,8 +40,7 @@
 
 			<h2>Registrar Salida De Refaccion</h2>
 
-			<p>
-				<br>
+			<p> 
 			</p>
 
 			<div class="formularios">
@@ -50,11 +49,15 @@
 				<br>
 
 				<form class="" action="salida_refpostventa_process.php" method="post">
+
+				<h4>Existencias: <?php echo $fila['cant_refpostventa']; ?></h4>
+
 					<input id="forms" type="text" name="id_refpostventa" hidden value="<?php echo $fila['id_refpostventa']; ?>">					
 				<table>
 					<tr>
 						<td><label>Descripcion: </label></td>
-						<td><input type="text" name="desc_refpostventa" disabled value="<?php echo $fila['desc_refpostventa']; ?>" ></td>
+						<td><input type="text" name="desc_refpostventa" disabled value="<?php echo $fila['desc_refpostventa']; ?>" >
+						    <input type="text" name="cant_refpostventa" value="<?php echo $fila['cant_refpostventa']; ?>" hidden ></td>
 					</tr>	
 
 					<tr>

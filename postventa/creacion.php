@@ -35,11 +35,14 @@ try {
 
 	if(isset($_POST['crear_ok'])){
 
-		$desc_refpostventa = $_POST['desc_refpostventa'];
+		$descr = $_POST['desc_refpostventa'];
 		$numparte = $_POST['numparte_refpostventa'];
+		$cant = $_POST['cant_refpostventa'];
+		$costo = $_POST['costo_refpostventa'];
+		
 
-	if(!empty($desc_refpostventa)){
-		$desc_refpostventa = trim($desc_refpostventa);
+	if(!empty($descr)){
+		$desr = trim($descr);
 	}else{
 		$errores.='Descripcion Vacia <br>';
 	}
@@ -50,11 +53,24 @@ try {
 		$errores.='Numero de Parte Vacia <br>';
 	}
 
-	if(!empty($desc_refpostventa) && !empty($numparte)){
-		$consulta = $conexion -> prepare("INSERT INTO refac_postventa VALUES(null, '$numparte', '$desc_refpostventa')");
-		$consulta -> execute();
+	if(!empty($descr) && !empty($numparte)){
+
+		
+		$consulta = $conexion -> prepare("INSERT INTO refac_postventa (numparte_refpostventa, desc_refpostventa, cant_refpostventa, costo_refpostventa) VALUES(:numparte, :descr, :cant, :costo) ");
+		$marcador_refac = [
+			":numparte" => $numparte,
+			":descr" => $descr,
+			":cant" => $cant,
+			":costo" => $costo,
+		];
+
+		$consulta -> execute($marcador_refac);
 
 		$enviado = true;
+
+		echo $numparte, $descr;
+
+
 	}else{
 
 	}
@@ -66,6 +82,7 @@ try {
 } catch (PDOException $e) {
 	echo "Error: " . $e -> getMessage();
 }
+
 
 require('views\creacion.view.php');
 	

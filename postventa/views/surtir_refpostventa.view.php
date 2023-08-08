@@ -61,7 +61,9 @@
 					
 					<tr>
 						<td><label>Cantidad Ingresa: </label></td>
-						<td><input type="text" name="cant_surtir"  value="" autofocus></td>
+						<td><input type="text" name="cant_surtir"  value="" autofocus>
+							<input type="text" name="cant_refpostventa" hidden value="<?php echo $fila['cant_refpostventa']; ?>" >
+						</td>
 					</tr>
 				
 				<?php endforeach; ?>
