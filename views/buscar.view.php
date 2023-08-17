@@ -93,7 +93,7 @@
 					}elseif($limite < 6 && $limite >0) { ?>
 					<td class="centro" bgcolor="#FF8C00">Pedir</td>
 				<?php }else{ ?>
-					<td class="centro" bgcolor="red">No hay</td>
+					<td class="centro" bgcolor="red">Inactivo</td>
 				<?php } ?>
 
 				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>

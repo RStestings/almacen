@@ -96,8 +96,6 @@
 			<div class="formcomp">
 
 				<br>
-				<br>
-				<br>
 					
 				<table>
 					<p>Datos de quien recibe:</p>
@@ -110,6 +108,11 @@
 						<td><label>Proyecto: </label></td>
 						<td><input type="text" name="proyecto" value=""></td>
 					</tr>	
+
+					<tr>
+						<td><label>Comentarios: </label></td>
+						<td><input type="text" name="coment_mov"  value=""></td>
+					</tr>
 
 					<tr>
 						<td><label>Fecha: </label></td>

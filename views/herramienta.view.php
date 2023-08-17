@@ -3,52 +3,148 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css\estilos.css">
+	<title>Insumos Tecnicos</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
-<body>
-		<h1 id="texto_centro">Herramienta Area Tecnica</h1>
-		<a href="index.php">Inicio</a>
-		<a href="buscar_herramienta.php">Buscar</a>
-		<a href="crear_herramienta.php">Crear Nuevo</a>
-		<hr>
-	
-	<br>
-	<br>
 
-	Ordenar:
-	<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-		<input class="button button2" type="submit" name="" value="Actualizar">
-		<input class="button button2" type="submit" name="asc" value="Menor">
-		<input class="button button2" type="submit" name="desc" value="Mayor">
-	</form>
-	<div class="contenido">
-		<article class="contenido">
-		<table class="contenidos">
-			<tr>
-			<th>ID</th>
-			<th>Descripcion</th>
-			<th>Marca</th>
-			<th>Unidad</th>
-			<th>Cantidad</th>
-			<th>Existente</th>
-			<th>Incompleto / Dañada</th>
-			<th>Faltante</th>
-			</tr>
-			<?php foreach ($resultado as $fila): ?>
-			<tr>
-				<td class="centro"><?php echo $fila['id']; ?></td>
+<script type="text/javascript">
+	function confirmacion(){
+		var respuesta = confirm("El registro se eliminara permanentemente. \n¿Deseas continuar?");
+
+			if (respuesta == true) {
+				return true;
+			} else {
+				return false;
+			}
+	}
+</script>
+
+<body>
+
+	<header>
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
+			echo $img_s;
+		}else{
+			echo 'no_usuario.png';
+		}
+		?>"></div>
+		<div id="icono2" class="redes"><li><?php echo $rol_s; ?></li></div>
+		<div id="iconocerrar" class="redes"><a href="cerrar.php">Cerrar</a></div>
+	</header>
+	
+	<nav>
+		<p>
+			<?php echo $hoy . ' - ' . $nombre_s . " | " .$login; ?>
+		</p>
+	</nav>
+
+	<section>
+		<aside id="izq">
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="buscar.php">Buscar</a></li>
+				<li><a href="ver_insumos.php">Ver Todos</a></li>
+			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+				<li><a href="creacion.php">Crear Nuevo</a></li>
+			<?php endif; ?>
+			</ul>
+		</aside>
+		
+		<article>
+
+		
+		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+						
+			<table class="tablebds">
+				<tr>
+					<th>ID</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
+					<th>Unidad</th>
+					<th>Cantidad</th>
+					<th>Existente</th>
+					<th>Incompleto / Dañada</th>
+					<th>Faltante</th>
+				</tr>
+
+				<?php 
+					$fila = isset($fila) ? $fila : false;
+						foreach ($resultado as $fila): 
+				?>
+	
+				<tr>
+				<td><?php echo $fila['id']; ?></td>
 				<td class="izq"><?php echo $fila['desc_hta']; ?></td>
 				<td class="izq"><?php echo $fila['marca_hta']; ?></td>
-				<td class="centro"><?php echo $fila['unidad_hta']; ?></td>
-				<td class="centro"><?php echo $fila['cant_hta']; ?></td>
-				<td class="centro"><?php echo $fila['exis_hta']; ?></td>
-				<td class="centro"><?php echo $fila['incompleto_hta']; ?></td>
-				<td class="centro"><?php echo $fila['faltante_hta']; ?></td>
-			</tr>
-			<?php endforeach; ?>
+				<td><?php echo $fila['unidad_hta']; ?></td>
+				<td id="centro"><?php echo $fila['cant_hta']; ?></td>
+				<td><?php echo $fila['exis_hta']; ?></td>
+				<td><?php echo $fila['incompleto_hta']; ?></td>
+				<td><?php echo $fila['faltante_hta']; ?></td>
+		
+				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+					<td ><a class="button button2" href="salida_herramienta.php?id=<?php echo $fila['id']; ?>">Salida</a></td>
+					<td ><a class="button button2" href="surtir_herramienta.php?id=<?php echo $fila['id']; ?>">Ingreso</a></td>
+				<?php endif; ?>
+
+				<?php if($rol_s == 'admin') : ?>
+					<td ><a class="button button4" href="editar_herramienta.php?id=<?php echo $fila['id']; ?>">Editar</a></td>
+					<td ><a class="button button3" href="delete_herramienta_process.php?id<?php echo $fila['id']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
+				<?php endif; ?>
+				</tr>
+
+				<?php endforeach; ?>
+
 		</table>
+
+		<?php
+			if($fila == false){
+				echo 'No existen coincidencias'; 
+			} 
+		?>
+		</form>
+
+			<div class="navtable">
+				
+				<ul>
+					
+					<?php if($pagina == 1): ?>
+					<li id="navdisabled">&laquo;</li>
+					<?php else: ?>
+					<li id="navboton"><a href="?pagina=<?php echo $pagina - 1 ?>">&laquo;</a></li>
+					<?php endif; ?>
+
+					<!--Ejecucion de ciclo para mostrar pagina anterior -->
+					<?php
+					for($i=1; $i <= $numeroPaginas; $i++){
+						if($pagina == $i){
+							echo "<li id='navboton'><a href='?pagina=$i'>$i</a></li>";
+						}else{ echo "<li id='navboton'><a href='?pagina=$i'>$i</a></li>";}
+					}
+					?>
+
+				<!--Establece cuando deshabilitar el boton siguiente -->
+					<?php if ($pagina == $numeroPaginas): ?>
+					<li id="navdisabled">&raquo;</li>
+					<?php else: ?>
+					<li id="navboton"><a href="?pagina=<?php echo $pagina + 1 ?>">&raquo;</a></li>
+					<?php endif; ?>
+				</ul>
+
+			</div>
+
+			<br>
+			<br>
+
 		</article>
-	</div>
+
+	</section>
+
+	<!-- <footer> <?php // fragmento comentado&copy; Todos los derechos reservados. ?>
+		
+	</footer> -->
+
 </body>
 </html>

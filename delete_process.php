@@ -7,9 +7,9 @@ $rol_s = rol($login);
 
 $nombre_s = nombre($login);
 
-$img_s = img($login);
+//$img_s = img($login);
 
-$hoy = hoy();
+//$hoy = hoy();
 
 if($rol_s == 'postventa'){
     header("Location: ./postventa/index.php");

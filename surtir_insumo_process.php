@@ -1,11 +1,13 @@
 <?php
 
-include('funciones/funciones.php');
+include('./funciones/funciones.php');
 $login = login();
 
 $id_s = id_s($login);
 
-$hoy = hoy();
+$rol_s = rol($login);
+
+$hoy = hoy_hora();
 
 if($rol_s == 'postventa'){
     header("Location: ./postventa/index.php");
@@ -26,7 +28,7 @@ $cantidad_s = $_POST['cant_surtir'];
 
 try {
 
-$id_insumo = $_GET['id_insumo'];
+$id_insumo = $_POST['id_insumo'];
 
 $conexion = new PDO('mysql: host=localhost; dbname=almacen', 'root', '');
 $consulta_preparada = $conexion -> prepare("UPDATE insumos SET cant_insumo = '$cantidad' WHERE id_insumo = '$id'");
@@ -35,7 +37,7 @@ $consulta_preparada -> execute();
 //$consulta_preparada = $conexion -> prepare("UPDATE usuarios SET nombre = '$nombre', edad = '$edad' WHERE id = '$id_edit'");
 
 if($cantidad_s > 0){
-	$consulta_mov = $conexion -> prepare("INSERT INTO movimientos_insumos VALUES (null, '$id', '$id_s', '$cantidad_s', '$proyecto', '$tecnico', '$hoy', 'Ingreso')");
+	$consulta_mov = $conexion -> prepare("INSERT INTO movimientos_insumos VALUES (null, '$id', '$id_s', '$cantidad_s', '$proyecto', '$tecnico', '$hoy', 'Ingreso', 'Almacen Tecnicos')");
 	$consulta_mov -> execute();
 }
 

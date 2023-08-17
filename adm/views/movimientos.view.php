@@ -67,6 +67,7 @@
 					<th>Tecnico</th>
 					<th>Fecha</th>
 					<th>Movimiento</th>
+					<th>Comentario</th>
 				</tr>
 
 				<?php 
@@ -103,6 +104,7 @@
 					<td class="centro"><?php echo $fila['tecnico']; ?></td>
 					<td id="centro"><?php echo $fila['fecha']; ?></td>
 					<td class="centro"><?php echo $fila['tipo_mov']; ?></td>
+					<td><?php echo $fila['coment_mov']; ?></td>
 				</tr>
 
 				<?php endforeach; ?>
