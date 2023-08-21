@@ -18,7 +18,7 @@ if($rol_s == 'postventa'){
 }
 
 
-if($rol_s == 'admin'){
+if($rol_s == 'admin' or $rol_s == 'logistica'){
 	try {
 
 	$id_insumo = $_GET['id_insumo'];

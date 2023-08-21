@@ -51,24 +51,28 @@
 
 			<table class="tablebds">
 				<tr>
-					<th>ID</th>
-					<th>Descripcion</th>
-					<th>Marca</th>
-					<th>Cantidad</th>
-					<th>Unidad</th>
-					<th>Stock</th>
-					<th>Status</th>
-				</tr>
+						<th>ID</th>
+						<th># Parte</th>
+						<th>Descripcion</th>
+						<th>Marca</th>
+						<th>Cantidad</th>
+						<th>Unidad</th>
+						<th>Stock</th>
+						<th>Status</th>
+					</tr>
 
-				<?php foreach ($resultado as $fila): ?>
-
-				<tr>
-					<td class="centro"><?php echo $fila['id_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['desc_insumo']; ?></td>
-					<td class="izq"><?php echo $fila['marca_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['cant_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['unidad_insumo']; ?></td>
-					<td class="centro"><?php echo $fila['stock_insumo']; ?></td>
+					<?php 
+						$fila = isset($fila) ? $fila : false;
+							foreach ($resultado as $fila): 
+					?>
+					<tr>
+						<td id="centro"><?php echo $fila['id_insumo']; ?></td>
+						<td><?php echo $fila['numparte_insumo']; ?></td>
+						<td><?php echo $fila['desc_insumo']; ?></td>
+						<td><?php echo $fila['marca_insumo']; ?></td>
+						<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
+						<td id="centro"><?php echo $fila['unidad_insumo']; ?></td>
+						<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
 					<?php
 					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
 						if($limite >= 6) { ?>

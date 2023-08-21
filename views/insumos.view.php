@@ -60,6 +60,7 @@
 			<table class="tablebds">
 				<tr>
 					<th>ID</th>
+					<th># Parte</th>
 					<th>Descripcion</th>
 					<th>Marca</th>
 					<th>Cantidad</th>
@@ -74,11 +75,12 @@
 				?>
 				<tr>
 					<td id="centro"><?php echo $fila['id_insumo']; ?></td>
+					<td ><?php echo $fila['numparte_insumo']; ?></td>
 					<td><?php echo $fila['desc_insumo']; ?></td>
 					<td><?php echo $fila['marca_insumo']; ?></td>
 					<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
-					<td id="centro"><?php echo $fila['unidad_insumo']; ?></td>
-					<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
+					<td><?php echo $fila['unidad_insumo']; ?></td>
+					<td><?php echo $fila['stock_insumo']; ?></td>
 					
 				<?php
 					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
@@ -93,11 +95,15 @@
 					<td class="centro" bgcolor="red">Inactivo</td>
 				<?php } ?>
 
-				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+				<?php if($rol_s == 'admin' OR $rol_s == 'almacen' OR $rol_s == 'logistica') : ?>
 					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
 					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
 				<?php endif; ?>
 
+				<?php if($rol_s == 'logistica') : ?>
+					<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>				
+				<?php endif; ?>
+				
 				<?php if($rol_s == 'admin') : ?>
 					<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
 					<td ><a class="button button3" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>

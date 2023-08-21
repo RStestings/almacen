@@ -38,11 +38,19 @@ try {
 
 	if(isset($_POST['crear_ok'])){
 
+	$clave_insumo = $_POST['numparte_insumo']; 
 	$desc_insumo = $_POST['desc_insumo'];
 	$marca_insumo = $_POST['marca_insumo'];
 	$cant_insumo = $_POST['cant_insumo'];
 	$unidad_insumo = $_POST['unidad_insumo'];
 	$stock_insumo = $_POST['stock_insumo'];
+
+	if(!empty($clave_insumo)){
+		$clave_insumo = trim($clave_insumo);
+		$clave_insumo = filter_var($clave_insumo, FILTER_SANITIZE_STRING);
+	}else{
+		$errores.='Clave Insumo Vacia <br>';
+	}
 
 	if(!empty($desc_insumo)){
 		$desc_insumo = trim($desc_insumo);
@@ -85,12 +93,13 @@ try {
 
 
 	if(!empty($desc_insumo && $marca_insumo && $cant_insumo && $unidad_insumo && $stock_insumo )){
-		$consulta = $conexion -> prepare('INSERT INTO insumos VALUES(null, :desc_insumo, :marca_insumo, :cant_insumo, :unidad_insumo, :stock_insumo)');
-		$consulta -> execute(['desc_insumo'=>$desc_insumo, 
-						'marca_insumo'=>$marca_insumo,
-						'cant_insumo'=>$cant_insumo,
-						'unidad_insumo'=>$unidad_insumo,
-						'stock_insumo'=>$stock_insumo,
+		$consulta = $conexion -> prepare('INSERT INTO insumos VALUES(null, :clave_insumo, :desc_insumo, :marca_insumo, :cant_insumo, :unidad_insumo, :stock_insumo)');
+		$consulta -> execute(['clave_insumo' => $clave_insumo,
+						'desc_insumo'=> $desc_insumo, 
+						'marca_insumo'=> $marca_insumo,
+						'cant_insumo'=> $cant_insumo,
+						'unidad_insumo'=> $unidad_insumo,
+						'stock_insumo'=> $stock_insumo,
 						]);
 
 		$enviado = true;

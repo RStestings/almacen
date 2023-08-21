@@ -49,6 +49,12 @@
 
 				<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 				<table>
+
+					<tr>
+						<td><label>Clave Insumo: </label></td>
+						<td><input type="text" name="numparte_insumo" placeholder="Clave Insumo:" value="<?php if(!$enviado && isset($numparte_insumo)) echo $numparte_insumo; ?>"></td>
+					</tr>	
+
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input type="text" name="desc_insumo" placeholder="Descripcion:" value="<?php if(!$enviado && isset($desc_insumo)) echo $desc_insumo; ?>"></td>

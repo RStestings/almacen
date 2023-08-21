@@ -4,7 +4,7 @@
 include('funciones/funciones.php');
 $login = login();
 
-$hoy = hoy();
+$hoy = hoy_hora();
 
 echo $login .' - ' . $hoy;
 

@@ -138,6 +138,10 @@ function rol($login){
             case 4:
                 $rol = 'postventa';
                 break;
+
+            case 5:
+                $rol = 'logistica';
+                break;
             
             default:
                 break;

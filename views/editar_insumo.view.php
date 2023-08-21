@@ -49,6 +49,7 @@
 				<br>
 			</p>
 
+			<?php if($rol_s == 'admin') : ?>
 			<div class="formularios">
 				<?php foreach ($resultado as $fila) : ?>
 
@@ -59,6 +60,11 @@
 					<input id="forms" type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
 					
 				<table>
+					<tr>
+						<td><label># Parte: </label></td>
+						<td><input autofocus type="text" name="numparte_insumo" value="<?php echo $fila['numparte_insumo']; ?>" ></td>
+					</tr>
+
 					<tr>
 						<td><label>Descripcion: </label></td>
 						<td><input autofocus type="text" name="desc_insumo" value="<?php echo $fila['desc_insumo']; ?>" ></td>
@@ -94,6 +100,39 @@
 
 				</form>
 			</div>
+		<?php endif; ?>
+
+		<?php if($rol_s == 'logistica') : ?>
+			<div class="formularios">
+				<?php foreach ($resultado as $fila) : ?>
+
+				<br>
+
+				<form class="" action="editar_insumo_process.php" method="post">
+
+					<input id="forms" type="text" name="id_insumo" hidden value="<?php echo $fila['id_insumo']; ?>">
+					
+				<table>
+					<tr>
+						<td><label># Parte: </label></td>
+						<td><input autofocus type="text" name="numparte_insumo" value="<?php echo $fila['numparte_insumo']; ?>" ></td>
+					</tr>
+
+					<tr>
+						<td><label>Descripcion: </label></td>
+						<td><input autofocus type="text" name="desc_insumo" value="<?php echo $fila['desc_insumo']; ?>" ></td>
+					</tr>
+				</table>
+
+				<br><br>
+					<input class="button button2" type="submit" name="ok" value="Guardar">
+					<a class="button button2" href="insumos.php">Salir</a>
+					<?php endforeach; ?>
+
+
+				</form>
+			</div>
+		<?php endif; ?>
 
 		</article>
 
