@@ -55,17 +55,46 @@
 
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-			<p>Buscar:
-				<input type="text" name="buscar_insumo" value="">
-				<input type="submit" name="ok" value="Ok" class="button button2">
+			<p>
+				
+				<table>
+					<tr>
+						<td>Buscar: </td>
+					</tr>
+
+					<tr>
+						<td>Descripcion</td>
+						<td><input type="text" name="buscar_insumo" value=""></td>
+					</tr>
+
+					<tr>
+						<td>Categoria</td>
+						<td>
+							<select name="buscar_categoria" id="">
+								<option value="">-Buscar Por Categorias</option>
+								<?php 
+									$consulta_ic = $conexion -> prepare("SELECT * FROM cate_insumo");
+									$consulta_ic -> execute();
+									$resultado_c = $consulta_ic -> fetchAll();
+
+									foreach($resultado_c as $fila_c) :
+								?>
+								<option value="<?php echo $fila_c['id_cate']; ?>"><?php echo $fila_c['desc_cat']; ?></option>
+								<?php endforeach; ?>
+							</select>
+						<td><input type="submit" name="ok" value="Ok" class="button button2"></td>
+					</tr>
+				</table>
+				<br>
+				
 			</p>
 			
 			<table class="tablebds">
-				<tr>
-						<th>ID</th>
-						<th># Parte</th>
+					<tr>
+						<th>Clave</th>
 						<th>Descripcion</th>
 						<th>Marca</th>
+						<th>Categoria</th>
 						<th>Cantidad</th>
 						<th>Unidad</th>
 						<th>Stock</th>
@@ -77,37 +106,48 @@
 							foreach ($resultado as $fila): 
 					?>
 					<tr>
-						<td id="centro"><?php echo $fila['id_insumo']; ?></td>
-						<td><?php echo $fila['numparte_insumo']; ?></td>
+						<td id="centro"><?php echo $fila['numparte_insumo']; ?></td>
 						<td><?php echo $fila['desc_insumo']; ?></td>
 						<td><?php echo $fila['marca_insumo']; ?></td>
+						<td><?php 
+							$id_cat = $fila['id_cate'];
+							$consulta_cat = $conexion -> prepare("SELECT * FROM cate_insumo WHERE id_cate = '$id_cat' ");
+							$consulta_cat -> execute();
+							$resultado2 = $consulta_cat -> fetchAll();
+
+							foreach($resultado2 as $fila_cat){
+
+								echo $fila_cat['desc_cat'];
+
+							} ?>
+						</td>
 						<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
 						<td><?php echo $fila['unidad_insumo']; ?></td>
 						<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
 					
-				<?php
-					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
-					if($limite >= 6) { 
-				?>
-					<td class="centro" bgcolor="#OOFF7F">OK</td>
+					<?php
+						$limite = $fila['cant_insumo']-$fila['stock_insumo'];
+						if($limite >= 6) { 
+					?>
+						<td class="centro" bgcolor="#OOFF7F">OK</td>
 
-				<?php
-					}elseif($limite < 6 && $limite >0) { ?>
-					<td class="centro" bgcolor="#FF8C00">Pedir</td>
-				<?php }else{ ?>
-					<td class="centro" bgcolor="red">Inactivo</td>
-				<?php } ?>
+					<?php
+						}elseif($limite < 6 && $limite >0) { ?>
+						<td class="centro" bgcolor="#FF8C00">Por Agotar</td>
+					<?php }else{ ?>
+						<td class="centro" bgcolor="red">Pedir</td>
+					<?php } ?>
 
-				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
-					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
-				<?php endif; ?>
+					<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+						<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
+						<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
+					<?php endif; ?>
 
-				<?php if($rol_s == 'admin') : ?>
-					<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
-					<td ><a class="button button3" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
-				<?php endif; ?>
-				</tr>
+					<?php if($rol_s == 'admin') : ?>
+						<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>
+						<td ><a class="button button3" href="delete_process.php?id_insumo=<?php echo $fila['id_insumo']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
+					<?php endif; ?>
+					</tr>
 
 				<?php endforeach; ?>
 
@@ -115,7 +155,7 @@
 
 		<?php
 			if($fila == false){
-				echo 'No existen coincidencias'; 
+				echo '<div class="alert"><p>No existen coincidencias</p></div>'; 
 			} 
 		?>
 		</form>

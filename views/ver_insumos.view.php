@@ -33,7 +33,8 @@
 				<li><a href="insumos.php">Regresar</a></li>
 				<li><a href="buscar.php">Buscar</a></li>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Crear Nuevo</a></li>
+				<li><a href="creacion.php">Nuevo Insumo</a></li>
+				<li><a href="creacion_categoria.php">Nueva Categoria</a></li>
 			<?php endif; ?>
 			</ul>
 		</aside>
@@ -52,9 +53,10 @@
 			<table class="tablebds">
 				<tr>
 						<th>ID</th>
-						<th># Parte</th>
+						<th>Clave</th>
 						<th>Descripcion</th>
 						<th>Marca</th>
+						<th>Categoria</th>
 						<th>Cantidad</th>
 						<th>Unidad</th>
 						<th>Stock</th>
@@ -70,6 +72,18 @@
 						<td><?php echo $fila['numparte_insumo']; ?></td>
 						<td><?php echo $fila['desc_insumo']; ?></td>
 						<td><?php echo $fila['marca_insumo']; ?></td>
+						<td><?php 
+							$id_cat = $fila['id_cate'];
+							$consulta_cat = $conexion -> prepare("SELECT * FROM cate_insumo WHERE id_cate = '$id_cat' ");
+							$consulta_cat -> execute();
+							$resultado2 = $consulta_cat -> fetchAll();
+
+							foreach($resultado2 as $fila_cat){
+
+								echo $fila_cat['desc_cat'];
+
+							} ?>
+						</td>
 						<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
 						<td id="centro"><?php echo $fila['unidad_insumo']; ?></td>
 						<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
@@ -80,9 +94,9 @@
 
 					<?php
 						}elseif($limite < 6 && $limite >0) { ?>
-							<td class="centro" bgcolor="#FF8C00">Surtir</td>
+							<td class="centro" bgcolor="#FF8C00">Por Agotar</td>
 					<?php }else{ ?>
-							<td class="centro" bgcolor="red">No hay</td>
+							<td class="centro" bgcolor="red">Pedir</td>
 					<?php } ?>
 				</tr>
 

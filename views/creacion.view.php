@@ -52,7 +52,7 @@
 
 					<tr>
 						<td><label>Clave Insumo: </label></td>
-						<td><input type="text" name="numparte_insumo" placeholder="Clave Insumo:" value="<?php if(!$enviado && isset($numparte_insumo)) echo $numparte_insumo; ?>"></td>
+						<td><input type="text" name="numparte_insumo" placeholder="Clave:" value="<?php if(!$enviado && isset($numparte_insumo)) echo $numparte_insumo; ?>"></td>
 					</tr>	
 
 					<tr>
@@ -64,6 +64,21 @@
 						<td><label>Marca: </label></td>
 						<td><input type="text" name="marca_insumo" placeholder="Marca:" value="<?php if(!$enviado && isset($marca_insumo)) echo $marca_insumo; ?>"></td>
 					</tr>	
+
+					<tr>
+						<td><label>Categoria: </label></td>
+						<td><select name="categoria">
+							<?php 
+							 $consulta_cat = $conexion -> prepare("SELECT * FROM cate_insumo");
+							 $consulta_cat ->execute();
+							 $resultadocat = $consulta_cat -> fetchAll();
+
+							 foreach($resultadocat as $fila_cat):
+							?>
+								<option value="<?php echo $fila_cat['id_cate']; ?>"><?php echo  $fila_cat['id_cate'].' - '.$fila_cat['desc_cat']; ?></option>
+							<?php endforeach; ?>
+						</select></td>
+					</tr>
 
 					<tr>
 						<td><label>Cantidad:</label></td>
@@ -85,11 +100,10 @@
 						<br><input type="submit" class="button button2" name="crear_ok" value="Guardar"> <a class="button button2" href="insumos.php">Salir</a>
 
 				</form>
-					<?php if(!empty($errores)): ?>
-						<div class="alert">
-							<p><?php echo  $errores; ?></p>
-						</div>
-							<?php elseif($enviado): ?>
+					<?php if(!empty($errores)){
+						echo $errores;
+					} ?>
+					<?php if($enviado): ?>
 						<div class="alert success">
 							<p>Enviado Correctamente</p>
 						</div>

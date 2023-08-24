@@ -322,7 +322,13 @@ article h2{
 }
 
 .formularios input[type="text"] {
-	margin: 2% -20%;
+	margin: 2% -5%;
+	width: 80%;
+	height: 20px;
+}
+
+.formularios select {
+	margin: 2% -5%;
 	width: 80%;
 	height: 20px;
 }
@@ -491,7 +497,7 @@ article h2{
 /* T A B L A   C R U D ' S */
 .tablebds {
 	margin: 30px 20px;
-	width: 80%;
+	width: 95%;
 	align-content: center;
 	/*border: 3px solid #000;*/
 	border-spacing: 0;
@@ -565,6 +571,7 @@ article h2{
 
 
 .navtable {
+	margin-top: 5px;
 	margin: 10px 20px;
 	float: left;
 	width: 80%;
@@ -655,7 +662,7 @@ footer {
 .alert {
 	margin-top: 5%;
 	width: 80%;
-	height: 145px;
+	height: 30px;
 	background: rgb(255, 154, 154);
 }
 

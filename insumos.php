@@ -28,7 +28,7 @@ try{
 try {
 	//$var_guarda_conexion = new PDO ('tipo:host=ruta;dbname=nombre_basededatos', 'usuario', 'password');
 	$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1 ;
-	$postporpagina = 10;
+	$postporpagina = 15;
 
 	$inicio = ($pagina > 1) ? ($pagina * $postporpagina - $postporpagina) : 0;
 

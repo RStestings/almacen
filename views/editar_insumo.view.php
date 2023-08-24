@@ -61,7 +61,7 @@
 					
 				<table>
 					<tr>
-						<td><label># Parte: </label></td>
+						<td><label>Clave</label></td>
 						<td><input autofocus type="text" name="numparte_insumo" value="<?php echo $fila['numparte_insumo']; ?>" ></td>
 					</tr>
 

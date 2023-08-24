@@ -11,6 +11,8 @@ $img_s = img($login);
 
 $hoy = hoy();
 
+$conexion = fconexion();
+
 if($rol_s == 'postventa'){
     header("Location: ./postventa/index.php");
 }
@@ -26,7 +28,6 @@ try{
 
 try {
 	//$var_guarda_conexion = new PDO ('tipo:host=ruta;dbname=nombre_basededatos', 'usuario', 'password');
-	$conexion = new PDO ('mysql:host=localhost;dbname=almacen', 'root', '');
 	//echo 'Conexion OK <br/><br/>';
 
 

@@ -47,7 +47,8 @@
 				<li><a href="buscar.php">Buscar</a></li>
 				<li><a href="ver_insumos.php">Ver Todos</a></li>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Crear Nuevo</a></li>
+				<li><a href="creacion.php">Nuevo Insumo</a></li>
+				<li><a href="creacion_categoria.php">Nueva Categoria</a></li>
 			<?php endif; ?>
 			</ul>
 		</aside>
@@ -56,13 +57,17 @@
 
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+
+		<p>
+			
+		</p>
 						
 			<table class="tablebds">
 				<tr>
-					<th>ID</th>
-					<th># Parte</th>
+					<th>Clave</th>
 					<th>Descripcion</th>
 					<th>Marca</th>
+					<th>Categoria</th>
 					<th>Cantidad</th>
 					<th>Unidad</th>
 					<th>Stock</th>
@@ -74,13 +79,24 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td id="centro"><?php echo $fila['id_insumo']; ?></td>
-					<td ><?php echo $fila['numparte_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['numparte_insumo']; ?></td>
 					<td><?php echo $fila['desc_insumo']; ?></td>
 					<td><?php echo $fila['marca_insumo']; ?></td>
+					<td><?php 
+							$id_cat = $fila['id_cate'];
+							$consulta_cat = $conexion -> prepare("SELECT * FROM cate_insumo WHERE id_cate = '$id_cat' ");
+							$consulta_cat -> execute();
+							$resultado2 = $consulta_cat -> fetchAll();
+
+							foreach($resultado2 as $fila_cat){
+
+								echo $fila_cat['desc_cat'];
+
+							} ?>
+					</td>
 					<td id="centro"><?php echo $fila['cant_insumo']; ?></td>
 					<td><?php echo $fila['unidad_insumo']; ?></td>
-					<td><?php echo $fila['stock_insumo']; ?></td>
+					<td id="centro"><?php echo $fila['stock_insumo']; ?></td>
 					
 				<?php
 					$limite = $fila['cant_insumo']-$fila['stock_insumo'];
@@ -90,9 +106,9 @@
 
 				<?php
 					}elseif($limite < 6 && $limite >0) { ?>
-					<td class="centro" bgcolor="#FF8C00">Pedir</td>
+					<td class="centro" bgcolor="#FF8C00">Por Agotar</td>
 				<?php }else{ ?>
-					<td class="centro" bgcolor="red">Inactivo</td>
+					<td class="centro" bgcolor="red">Pedir</td>
 				<?php } ?>
 
 				<?php if($rol_s == 'admin' OR $rol_s == 'almacen' OR $rol_s == 'logistica') : ?>
@@ -112,13 +128,17 @@
 
 				<?php endforeach; ?>
 
+				
+				<?php if($fila == false) :?>
+				
+					<tr>
+						<td><div class="alert"><?php echo 'Lo sentimos, ocurrio un error '; ?><a href="./insumos.php">Cargar datos</a></div></td>
+					</tr>
+				<?php endif; ?>
+
 		</table>
 
-		<?php
-			if($fila == false){
-				echo 'No existen coincidencias'; 
-			} 
-		?>
+		
 		</form>
 
 			<div class="navtable">
