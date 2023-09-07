@@ -218,6 +218,11 @@ aside#izq {
 	background: #333;
 }
 
+aside#izq a {
+	text-decoration: none;
+	color: white;
+}
+
 
 aside#izq ul li {
 	background: #AB0000;
@@ -227,6 +232,7 @@ aside#izq ul li {
 	list-style-position:inside;
 	list-style-image:url(lista.png);
 }
+
 
 aside#izq li:hover {
 	background: #7C0303;

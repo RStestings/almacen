@@ -43,12 +43,16 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="buscar.php">Buscar</a></li>
-				<li><a href="ver_insumos.php">Ver Todos</a></li>
+				<a href="index.php"><li>Inicio</li></a>
+				<a href="buscar.php"><li>Buscar</li></a>
+				<a href="ver_insumos.php"><li>Ver Todos</li></a>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Nuevo Insumo</a></li>
-				<li><a href="creacion_categoria.php">Nueva Categoria</a></li>
+				<a href="creacion.php"><li>Nuevo Insumo</li></a>
+				<a href="creacion_categoria.php"><li>Nueva Categoria</li></a>
+			<?php endif; ?>
+
+			<?php if($rol_s == 'logistica') : ?>
+				<a href="ver_categorias.php"><li>Ver Categorias</li></a>
 			<?php endif; ?>
 			</ul>
 		</aside>
@@ -111,13 +115,9 @@
 					<td class="centro" bgcolor="red">Pedir</td>
 				<?php } ?>
 
-				<?php if($rol_s == 'admin' OR $rol_s == 'almacen' OR $rol_s == 'logistica') : ?>
+				<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
 					<td ><a class="button button2" href="salida_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Salida</a></td>
 					<td ><a class="button button2" href="surtir_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Ingreso</a></td>
-				<?php endif; ?>
-
-				<?php if($rol_s == 'logistica') : ?>
-					<td ><a class="button button4" href="editar_insumo.php?id_insumo=<?php echo $fila['id_insumo']; ?>">Editar</a></td>				
 				<?php endif; ?>
 				
 				<?php if($rol_s == 'admin') : ?>

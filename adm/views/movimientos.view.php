@@ -43,8 +43,10 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="../index.php">Atras</a></li>
-				<li><a href="bitacora.php">Bitacora</a></li>
+				<a href="../index.php"><li>Atras</li></a>
+				<?php if($rol_s == 'admin') : ?>
+				<a href="bitacora.php"><li>Bitacora</li></a>
+				<?php endif; ?>
 			</ul>
 		</aside>
 		
@@ -52,8 +54,22 @@
 
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-			<p>Buscar por tecnico:
-				<input type="text" name="buscar_tec" value="">
+			<p>Buscar:
+				<br>
+				<label for="">Por Proyecto:</label><input type="text" name="buscar_proyecto" value="">
+				<br>
+			</p>
+
+			<br>
+
+			<p>Por fecha:
+				<label for="">De: </label>
+				<input type="text" name="fecha1" value="">
+				<label for="">A: </label>
+				<input type="text" name="fecha2" value="">
+				<br><br>
+				<label for="">Por proyecto y fecha </label><input type="checkbox" name="all">
+				<br>
 				<input type="submit" name="ok" value="Ok" class="button button2">
 			</p>
 			

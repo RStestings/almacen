@@ -43,11 +43,11 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="buscar.php">Buscar</a></li>
-				<li><a href="ver_insumos.php">Ver Todos</a></li>
+				<a href="index.php"><li>Inicio</li></a>
+				<a href="buscar.php"><li>Buscar</li></a>
+				<a href="ver_insumos.php"><li>Ver Todos</li></a>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Crear Nuevo</a></li>
+				<a href="creacion.php"><li>Crear Nuevo</li></a>
 			<?php endif; ?>
 			</ul>
 		</aside>

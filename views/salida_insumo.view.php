@@ -31,11 +31,11 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="buscar.php">Atras</a></li>
-				<li><a href="insumos.php">Ver Todos</a></li>
+				<a href="buscar.php"><li>Atras</li></a>
+				<a href="insumos.php"><li>Ver Todos</li></a>
 
 			<?php //if($rol_s == 'admin') :  ?>
-				<li><a href="creacion.php">Crear Nuevo</a></li>
+				<a href="creacion.php"><li>Crear Nuevo</li></a>
 			<?php //endif; ?>
 
 			</ul>

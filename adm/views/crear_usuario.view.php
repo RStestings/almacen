@@ -31,7 +31,7 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="usuarios.php">Regresar</a></li>
+				<a href="usuarios.php"><li>Regresar</li></a>
 			</ul>
 		</aside>
 		

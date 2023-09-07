@@ -31,8 +31,8 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="buscar.php">Atras</a></li>
-				<li><a href="buscar.php">Buscar</a></li>
+				<a href="insumos.php"><li>Atras</li></a>
+				<a href="buscar.php"><li>Buscar</li></a>
 			</ul>
 		</aside>
 		

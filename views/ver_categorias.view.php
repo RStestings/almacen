@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Insumos Tecnicos</title>
 	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../css/estilosalm.css" media="">
+	<link rel="stylesheet" type="text/css" href="css/estilosalm.css" media="">
 </head>
 
 <script type="text/javascript">
@@ -23,8 +23,8 @@
 <body>
 
 	<header>
-		<div id="logo"><img src="../imagenes/rs.png">Rseguridad</div>
-		<div id="icono1" class="redes"><img src="../imagenes/usuarios/<?php if(!empty($img_s)){
+		<div id="logo"><img src="imagenes/rs.png">Rseguridad</div>
+		<div id="icono1" class="redes"><img src="imagenes/usuarios/<?php if(!empty($img_s)){
 			echo $img_s;
 		}else{
 			echo 'no_usuario.png';
@@ -43,8 +43,10 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<a href="../index.php"><li>Atras</li></a>
-				<a href="movimientos.php"><li>Movimientos</li></a>
+				<a href="insumos.php"><li>Regresar</li></a>
+			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
+				<a href="creacion_categoria.php"><li>Nueva Categoria</li></a>
+			<?php endif; ?>
 			</ul>
 		</aside>
 		
@@ -52,17 +54,15 @@
 
 		
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-			<p>Buscar por descripcion:
-				<input type="text" name="buscar_tec" value="">
-				<input type="submit" name="ok" value="Ok" class="button button2">
-			</p>
+
+		<p>
 			
+		</p>
+						
 			<table class="tablebds">
 				<tr>
-					<th>Id</th>
-					<th>Usuario</th>
-					<th>Fecha</th>
-					<th>Descripcion</th>
+					<th>ID</th>
+					<th>Categoria</th>
 				</tr>
 
 				<?php 
@@ -70,35 +70,32 @@
 						foreach ($resultado as $fila): 
 				?>
 				<tr>
-					<td class="centro"><?php echo $fila['id_bitacora_login']; ?></td>
-					<td class="izq"><?php 
-					$id_u = $fila['id_usuario']; 
-
-					$consulta_usuario = $conexion -> prepare("SELECT  * FROM usuarios WHERE id_usuario LIKE '$id_u'");
-					$consulta_usuario -> execute();
-					$resultado_usuario = $consulta_usuario -> fetchAll();
-
-					foreach ($resultado_usuario as $fila_usuario){
-						echo $fila_usuario['login'];
-					}
-					?>	
-					</td>
-					<td class="centro"><?php echo $fila['fecha']; ?></td>
-					<td class="centro"><?php echo $fila['descripcion']; ?></td>
-					</tr>
+					<td id="centro"><?php echo $fila['id_cate']; ?></td>
+					<td><?php echo $fila['desc_cat']; ?></td>
+				
+				<?php if($rol_s == 'admin') : ?>
+					<td ><a class="button button4" href="?id_insumo=<?php echo $fila['id_cate']; ?>">Editar</a></td>
+					<td ><a class="button button3" href="?id_insumo=<?php echo $fila['id_cate']; ?>" onclick ='return confirmacion()'>Eliminar</a></td>
+				<?php endif; ?>
+				</tr>
 
 				<?php endforeach; ?>
 
+				
+				<?php if($fila == false) :?>
+				
+					<tr>
+						<td><div class="alert"><?php echo 'Lo sentimos, ocurrio un error '; ?><a href="./insumos.php">Cargar datos</a></div></td>
+					</tr>
+				<?php endif; ?>
+
 		</table>
 
-		<?php
-			if($fila == false){
-				echo 'No existen coincidencias'; 
-			} 
-		?>
+		
 		</form>
 
 			<div class="navtable">
+				
 				<ul>
 					
 					<?php if($pagina == 1): ?>
@@ -123,6 +120,7 @@
 					<li id="navboton"><a href="?pagina=<?php echo $pagina + 1 ?>">&raquo;</a></li>
 					<?php endif; ?>
 				</ul>
+
 			</div>
 
 			<br>

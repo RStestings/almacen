@@ -169,7 +169,7 @@ function hoy() {
 /* FUNCION HOY PARA BD */
 function hoy_hora() {
     date_default_timezone_set('America/Mexico_City');
-    $fecha = date('Y-m-d h:i:s');
+    $fecha = date('Y-m-d');
     
     return $fecha; 
 }

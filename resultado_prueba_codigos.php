@@ -1,38 +1,29 @@
-<?php
-include_once "./funciones/funciones.php";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        
+        <label for="">Usuario: </label>
+        <input type="text" name="usuario" placeholder="Usuario:">
+        
+        <br>
+        <br>
 
-$conexion = fconexion();
+        <label for="">Password: </label>
+        <input type="text" name="pass" placeholder="Password:">
 
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
-    $cat = isset($_POST['Categoria']) ? $_POST['Categoria'] : false;
-    $i = 0;
+        <br>
+        <br>
+        
+        <input type="submit" value="OK">
 
-// QUERY BUSQUEDA
-if(empty($resultado)){
-    echo 'Resultado vacio';
-}
-if(empty($_POST['ok'])){
+    </form>
 
-    $consulta = $conexion -> prepare("SELECT * FROM insumos WHERE id_cate LIKE '$cat'");
-    $consulta -> execute();
-    $resultado = $consulta -> fetchAll();
-
-        echo 'Bienvenido '.$nombre;
-        echo "
-            <br>
-            <br> Resultado de la Busqueda:
-            <br>
-            ";
-
-        foreach($resultado as $fila){
-            $i++;
-
-            echo $i .' - '. $fila['desc_insumo'].'<br>';
-    }
-   
-}
-
-
-
-
-?>
+</body>
+</html>

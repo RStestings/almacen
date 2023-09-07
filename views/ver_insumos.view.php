@@ -30,11 +30,11 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="insumos.php">Regresar</a></li>
-				<li><a href="buscar.php">Buscar</a></li>
+				<a href="insumos.php"><li>Regresar</li></a>
+				<a href="buscar.php"><li>Buscar</li></a>
 			<?php if($rol_s == 'admin' OR $rol_s == 'almacen') : ?>
-				<li><a href="creacion.php">Nuevo Insumo</a></li>
-				<li><a href="creacion_categoria.php">Nueva Categoria</a></li>
+				<a href="creacion.php"><li>Nuevo Insumo</li></a>
+				<a href="creacion_categoria.php"><li>Nueva Categoria</li></a>
 			<?php endif; ?>
 			</ul>
 		</aside>

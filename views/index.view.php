@@ -31,14 +31,19 @@
 	<section>
 		<aside id="izq">
 			<ul>
-				<li><a href="insumos.php">Insumos</a></li>
-				<li><a href="herramienta.php">Herramienta</a></li>
+			<a href="insumos.php"><li>Insumos</li></a>
+				<a href="herramienta.php"><li>Herramienta</li></a>
 
 			<?php if($rol_s == 'admin') :  ?>
-				<li><a href="#">Tecnicos</a></li>
-				<li><a href="adm/movimientos.php">Movimientos</a></li>
-				<li><a href="adm/usuarios.php">Usuarios</a></li>
-				<li><a href="postventa/index.php">Postventa</a></li>
+				<a href="#"><li>Tecnicos</li></a>
+				<a href="adm/movimientos.php"><li>Movimientos</li></a>
+				<a href="adm/usuarios.php"><li>Usuarios</li></a>
+				<a href="postventa/index.php"><li>Postventa</li></a>
+			<?php endif; ?>
+
+			<!-- PARA LOGISTICA -->
+			<?php if($rol_s == 'logistica') :  ?>
+				<a href="adm/movimientos.php"><li>Movimientos</li></a>
 			<?php endif; ?>
 
 			</ul>
